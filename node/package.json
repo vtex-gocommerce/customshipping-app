@@ -1,0 +1,19 @@
+{
+  "name": "graphql",
+  "version": "1.0.1",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "10.12.1",
+    "@gocommerce/utils": "^0.5.8",
+    "axios": "^0.17.1",
+    "form-data": "^2.3.2"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.39"
+  }
+}

@@ -1,0 +1,10 @@
+mutation saveCarrier($data: String, $type: String, $file: Upload) @context(scope: "private") {
+  saveCarrier(data: $data, type: $type, file: $file) {
+    userErrors {
+      message
+      code
+      path
+    }
+    status
+  }
+}

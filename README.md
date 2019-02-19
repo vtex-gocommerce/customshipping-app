@@ -1,2 +1,2 @@
 # customshipping-app
-Custom Shipping App
+Custom Shipping for GoCommerce

@@ -1,0 +1,7 @@
+mutation deleteCarrier($id: [String], $type: String) @context(scope: "private") {
+  deleteCarrier (id: $id, type: $type){
+    status
+    status_code
+    message
+	}
+}

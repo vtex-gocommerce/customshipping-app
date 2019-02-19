@@ -1,0 +1,21 @@
+{
+  "pages": {
+    "admin/gocommerce.customshipping-app": {
+      "path": "/admin/logistics/gocommerce.customshipping-app"
+    }
+  },
+  "extensions": {
+    "admin/gocommerce.customshipping-app": {
+      "component": "index"
+    },
+    "admin/logistics/shippingDetail/gocommerce.customshipping-app": {
+      "component": "index"
+    },
+    "admin/apps/setup/advanced-config-page/gocommerce.customshipping-app": {
+      "component": "gocommerce.apps/advancedConfigInfo",
+      "props": {
+        "page": "admin/logistics/shippingDetail"
+      }
+    }
+  }
+}

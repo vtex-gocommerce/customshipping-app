@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "typeRoots": ["./node_modules/typings"],
+    "lib": ["dom", "es7"]
+  },
+  "lib": ["dom", "es7"]
+}

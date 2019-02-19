@@ -1,0 +1,32 @@
+query getCarrierDetail($id: String, $type: String) @context(scope: "private") {
+  carrier(id: $id, type: $type) {
+    id
+    name
+    slaType
+    type
+    endPoint
+    isActive
+    fixedValue
+    country
+    customFields
+    factorCubicWeight
+    minimumValueAceptable
+    minimunCubicWeight
+    deliveryOnWeekends
+    freightTableValueError
+    freightTableProcessStatus
+    maxDimension {
+      weight
+      height
+      width
+      length
+      maxSumDimension
+    }
+    minimumValue
+    additionalTime
+    additionalPrice {
+      method
+      value
+    }
+  }
+}

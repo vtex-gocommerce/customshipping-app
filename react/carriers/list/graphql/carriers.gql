@@ -1,0 +1,13 @@
+query getCarriers($type: String) @context(scope: "private") {
+  carriers(type: $type) {
+    totalNodes
+    nodes {
+      id
+      name
+      isActive
+      slaType
+      freightTableProcessStatus
+      freightTableValueError
+    }
+  }
+}

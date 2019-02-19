@@ -1,0 +1,69 @@
+type MaxDimension {
+  weight: Int
+  height: Int
+  width: Int
+  length: Int
+  maxSumDimension: Int
+}
+
+type AdditionalPrice {
+  method: Int
+  value: Int
+}
+
+type Carrier {
+  id: String
+  name: String
+  slaType: String
+  fixedValue: Boolean
+  isActive: Boolean
+  country: String
+  type: String
+  endPoint: String
+  customFields: String
+  factorCubicWeight: Int
+  minimunCubicWeight: Int
+  deliveryOnWeekends: Boolean
+  maxDimension: MaxDimension
+  minimumValue: Int
+  freightTableValueError: String
+  minimumValueAceptable: Float
+  additionalTime: String
+  additionalPrice: AdditionalPrice
+  freightTableProcessStatus: String
+}
+
+type CarrierReturnStatus {
+  status: String
+  status_code: Int
+  message: [String]
+}
+
+type Carriers {
+  totalNodes: Int
+  nodes: [Carrier]
+}
+
+type saveCarrierPayload {
+  userErrors: [UserError]
+  status: String
+}
+
+type UserError {
+  message: String!
+  # The i18n translation code
+  code: String!
+  # Path to input field (or other target) which caused the error.
+  # i.e.: ['accounts','0','name'] indicates an error at `accounts[0].name`
+  path: [String!]
+}
+
+type Query {
+  carriers(type: String): Carriers @cacheControl(scope: PRIVATE)
+  carrier(id: String, type: String): Carrier @cacheControl(scope: PRIVATE)
+}
+
+type Mutation {
+  deleteCarrier(id: [String], type: String): CarrierReturnStatus @cacheControl(scope: PRIVATE)
+  saveCarrier(data: String, type: String, file: Upload): saveCarrierPayload @cacheControl(scope: PRIVATE)
+}

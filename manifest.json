@@ -1,0 +1,38 @@
+{
+  "name": "customshipping-app",
+  "vendor": "gocommerce",
+  "version": "0.0.0",
+  "title": "Custom Shipping",
+  "description": "Custom Shipping App",
+  "mustUpdateAt": "2022-03-02",
+  "credentialType": "absolute",
+  "registries": ["smartcheckout", "gocommerce"],
+  "categories": ["gocommerce", "shipping"],
+  "dependencies": {
+    "gocommerce.apps": "0.x",
+    "gocommerce.gc-utils": "0.x",
+    "gocommerce.styleguide": "1.x"
+  },
+  "builders": {
+    "react": "2.x",
+    "pages": "0.x",
+    "messages": "0.x",
+    "node": "3.x",
+    "graphql": "1.x"
+  },
+  "policies": [
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "api.gocommerce.com",
+        "path": "*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "splunk-heavyforwarder-public.vtex.com"
+      }
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+mutation saveCarrier($file: Upload!) @context(scope: "private") {
+  saveCarrier(file: $file)
+}
