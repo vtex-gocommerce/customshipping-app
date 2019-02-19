@@ -4,7 +4,7 @@ import { biuldGraphQlError } from '@gocommerce/utils'
 // const endpointAssets = 'https://s3.amazonaws.com/gc-ui/'
 
 export const carriers = async (param, makeApiCall) => {
-  const url = param.type == 'correios' ? `/logistics/externalcarriers` : `/logistics/carriers`
+  const url = `/logistics/carriers`
   const { data, error } = await makeApiCall(url, 'get')
   if (error) {
     throw biuldGraphQlError('GET Carriers Faild', error.response.status)
@@ -13,7 +13,7 @@ export const carriers = async (param, makeApiCall) => {
 }
 
 export const carrier = async (param, makeApiCall) => {
-  const url = `/logistics/${param.type}/${param.id}`
+  const url = `/logistics/carriers/${param.id}`
   const { data, error } = await makeApiCall(url, 'get')
 
   if (error) {

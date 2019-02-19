@@ -4,7 +4,7 @@ import FormData from 'form-data'
 export const deleteCarrier = async (param, makeApiCall) => {
   const errorList = []
   for (let id of param.id) {
-    const url = `/logistics/${param.type}/${id}`
+    const url = `/logistics/carriers/${id}`
     const { data, error } = await makeApiCall(url, 'delete', { id })
     if (error) {
       errorList.push(id)
@@ -15,7 +15,7 @@ export const deleteCarrier = async (param, makeApiCall) => {
 
 export const saveCarrier = async (param, makeApiCall, ctx) => {
   const paramJSON = JSON.parse(param.data)
-  const url = `/logistics/${param.type}/${paramJSON.id}`
+  const url = `/logistics/carriers/${paramJSON.id}`
   let { data: responseSaveCarrier, error: SaveCarryError } = await makeApiCall(url, 'put', paramJSON)
   const errorList = []
 

@@ -1,5 +1,5 @@
-query getCarriers($type: String) @context(scope: "private") {
-  carriers(type: $type) {
+query getCarriers @context(scope: "private") {
+  carriers {
     totalNodes
     nodes {
       id

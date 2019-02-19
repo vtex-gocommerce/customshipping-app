@@ -34,7 +34,7 @@ class ButtonDeleteCarrier extends React.Component<ButtonDeleteCarrierProps, Butt
   }
 
   handleClickYes = deleteCarrier => {
-    deleteCarrier({ variables: { id: this.props.item.id, type: 'carriers' } })
+    deleteCarrier({ variables: { id: this.props.item.id } })
       .then(() => {
         Notify.show(this.props.intl.formatMessage({ id: 'admin.shipping.msg-delete-success' }), {
           position: 'top-right',

@@ -59,11 +59,11 @@ type UserError {
 }
 
 type Query {
-  carriers(type: String): Carriers @cacheControl(scope: PRIVATE)
-  carrier(id: String, type: String): Carrier @cacheControl(scope: PRIVATE)
+  carriers: Carriers @cacheControl(scope: PRIVATE)
+  carrier(id: String): Carrier @cacheControl(scope: PRIVATE)
 }
 
 type Mutation {
-  deleteCarrier(id: [String], type: String): CarrierReturnStatus @cacheControl(scope: PRIVATE)
-  saveCarrier(data: String, type: String, file: Upload): saveCarrierPayload @cacheControl(scope: PRIVATE)
+  deleteCarrier(id: [String]): CarrierReturnStatus @cacheControl(scope: PRIVATE)
+  saveCarrier(data: String, file: Upload): saveCarrierPayload @cacheControl(scope: PRIVATE)
 }

@@ -31,7 +31,6 @@ class IndexPageLogistics extends React.Component<IndexPageProps, IndexPageState>
                     fetchPolicy="network-only"
                     errorPolicy="all"
                     query={getCarriers}
-                    variables={{ type: this.props.params.type }}
                   >
                     {({ data, loading, fetchMore }) => {
                       return (

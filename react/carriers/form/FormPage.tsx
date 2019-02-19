@@ -83,7 +83,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
             position: 'top-right',
             type: 'success'
           })
-          this.props.navigate({ to: '/admin/logistics/custom' })
+          this.props.navigate({ page: 'admin/gocommerce.customshipping-app' })
         }
       })
       .catch(error => {
@@ -99,7 +99,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
     const { isLoadingData, errorSaveCarrier, action, account } = this.props
     const carrier = (this.props.carrier && this.props.carrier.data && this.props.carrier.data.carrier) || {}
     const breadcrumbConfig = [
-      { title: <FormattedMessage id="admin.shipping.custom-shipping" />, to: '/admin/logistics/custom' },
+      { title: <FormattedMessage id="admin.shipping.custom-shipping" />, page: 'admin/gocommerce.customshipping-app' },
       {
         title:
           action === 'create' ? this.props.intl.formatMessage({ id: 'admin.shipping.add' }) : carrier.name! || ' - '

@@ -1,5 +1,5 @@
-query getCarrierDetail($id: String, $type: String) @context(scope: "private") {
-  carrier(id: $id, type: $type) {
+query getCarrierDetail($id: String) @context(scope: "private") {
+  carrier(id: $id) {
     id
     name
     slaType

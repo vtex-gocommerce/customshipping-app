@@ -1,7 +1,7 @@
 {
   "name": "customshipping-app",
   "vendor": "gocommerce",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "title": "Custom Shipping",
   "description": "Custom Shipping App",
   "mustUpdateAt": "2022-03-02",

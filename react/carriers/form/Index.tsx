@@ -34,7 +34,7 @@ class IndexPageLogistics extends React.Component<IndexPageProps, IndexPageState>
                         errorPolicy="all"
                         query={getCarrierDetail}
                         skip={!this.props.params.carrier_id}
-                        variables={{ id: this.props.params.carrier_id, type: 'carriers' }}
+                        variables={{ id: this.props.params.carrier_id }}
                       >
                         {data => {
                           return (
