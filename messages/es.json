@@ -1,7 +1,6 @@
 {
   "admin.shipping.my-shipping-methods": "Mis métodos de envío",
   "admin.shipping.custom-shipping": "Envío personalizado",
-  "admin.shipping.correios": "Correios",
   "admin.shipping.description-custom-shipping": "Cree reglas de envío de forma personalizada. Puede crear reglas con precios basados en el peso o cargar una hoja de cálculo con reglas avanzadas.",
   "admin.shipping.description-correios": "Correo como un método de envío para sus clientes y atender a todo el territorio.",
   "admin.shipping.all-shippings": "Todos los métodos de envío personalizados",

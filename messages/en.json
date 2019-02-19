@@ -1,7 +1,6 @@
 {
   "admin.shipping.my-shipping-methods": "My shipping methods",
   "admin.shipping.custom-shipping": "Custom shipping",
-  "admin.shipping.correios": "Correios",
   "admin.shipping.description-custom-shipping": "Create shipping rules on a personalized way. You can create rules with weight based prices or upload a spreadsheet with advanced rules.",
   "admin.shipping.description-correios": "Correios as a shipping method for your customers and attend to all brazilian territory",
   "admin.shipping.all-shippings": "All custom shipping methods",
