@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Link } from 'render'
+import { Link } from 'vtex.render-runtime'
 import { FormattedMessage } from 'react-intl'
 import { Button, ListTableTemplate, IconPlusCircle } from 'gocommerce.styleguide'
 import { TemplatePage, WithNavigate } from 'gocommerce.gc-utils'

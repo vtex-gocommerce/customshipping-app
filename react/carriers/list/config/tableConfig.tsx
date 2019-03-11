@@ -2,12 +2,12 @@ import * as React from 'react'
 import { FormattedMessage } from 'react-intl'
 import { Status, IconInfo, Tooltip } from 'gocommerce.styleguide'
 import ButtonDeleteCarrier from './../components/ButtonDeleteCarrier'
-import { Link } from 'render'
+import { Link } from 'vtex.render-runtime'
 
 export const tableConfig = {
   options: {
     cellWrapperProps: item => ({
-      page: 'admin/logistics/carrierEdit',
+      page: 'admin.logistics.carrierEdit',
       params: { carrier_id: item.id }
     })
   },

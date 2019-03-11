@@ -1,7 +1,7 @@
 {
   "name": "customshipping-app",
   "vendor": "gocommerce",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "title": "Custom Shipping",
   "description": "Custom Shipping App",
   "mustUpdateAt": "2022-03-02",
@@ -9,14 +9,15 @@
   "registries": ["smartcheckout", "gocommerce"],
   "categories": ["gocommerce", "shipping"],
   "dependencies": {
-    "gocommerce.apps": "0.x",
-    "gocommerce.gc-utils": "0.x",
-    "gocommerce.styleguide": "1.x"
+    "gocommerce.admin-logistics": "1.x",
+    "gocommerce.styleguide": "2.x",
+    "gocommerce.gc-utils": "2.x",
+    "gocommerce.gc-context": "0.x"
   },
   "builders": {
-    "react": "2.x",
-    "pages": "0.x",
-    "messages": "0.x",
+    "react": "3.x",
+    "pages": "1.x",
+    "messages": "1.x",
     "node": "3.x",
     "graphql": "1.x"
   },
