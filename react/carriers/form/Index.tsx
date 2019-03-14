@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { injectIntl } from 'react-intl'
-import { RenderContextConsumer } from 'render'
+import { RenderContextConsumer } from 'vtex.render-runtime'
 import FormPage from './FormPage'
-import { GcQuery, GcMutation, Context } from 'gocommerce.gc-utils'
+import { GcQuery, GcMutation } from 'gocommerce.gc-utils'
+import { Context } from 'gocommerce.gc-context'
 import saveCarrier from './graphql/saveCarrier.gql'
 import getCarrierDetail from './graphql/getCarrierDetail.gql'
 

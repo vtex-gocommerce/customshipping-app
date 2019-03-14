@@ -1,0 +1,19 @@
+{
+  "admin.logistics.customshipping-app": {
+    "component": "index"
+  },
+  "admin.logistics.carrierEdit": {
+    "component": "carrierForm",
+    "props": {
+      "action": "edit",
+      "type": "default"
+    }
+  },
+  "admin.logistics.carrierCreate": {
+    "component": "carrierForm",
+    "props": {
+      "action": "create",
+      "type": "default"
+    }
+  }
+}

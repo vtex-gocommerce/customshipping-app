@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { WithNavigate, Form } from 'gocommerce.gc-utils'
 import { FormattedMessage } from 'react-intl'
-import { Helmet, Link } from 'render'
+import { Helmet, Link } from 'vtex.render-runtime'
 import shortid from 'shortid'
 import { TemplatePage } from 'gocommerce.gc-utils'
 import {
@@ -83,7 +83,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
             position: 'top-right',
             type: 'success'
           })
-          this.props.navigate({ page: 'admin/gocommerce.customshipping-app' })
+          this.props.navigate({ page: 'admin.logistics.customshipping-app' })
         }
       })
       .catch(error => {
@@ -99,7 +99,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
     const { isLoadingData, errorSaveCarrier, action, account } = this.props
     const carrier = (this.props.carrier && this.props.carrier.data && this.props.carrier.data.carrier) || {}
     const breadcrumbConfig = [
-      { title: <FormattedMessage id="admin.shipping.custom-shipping" />, page: 'admin/gocommerce.customshipping-app' },
+      { title: <FormattedMessage id="admin.shipping.custom-shipping" />, page: 'admin.logistics.customshipping-app' },
       {
         title:
           action === 'create' ? this.props.intl.formatMessage({ id: 'admin.shipping.add' }) : carrier.name! || ' - '

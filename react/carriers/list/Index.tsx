@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { injectIntl } from 'react-intl'
 import ListCarriers from './ListCarriers'
-import { RenderContextConsumer } from 'render'
-import { GcQuery, Context } from 'gocommerce.gc-utils'
+import { RenderContextConsumer } from 'vtex.render-runtime'
+import { GcQuery } from 'gocommerce.gc-utils'
+import { Context } from 'gocommerce.gc-context'
 import getCarriers from './graphql/carriers.gql'
 import { Intl } from './../../utils/types'
 
