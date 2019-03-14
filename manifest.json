@@ -1,7 +1,7 @@
 {
   "name": "customshipping-app",
   "vendor": "gocommerce",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "title": "Custom Shipping",
   "description": "Custom Shipping App",
   "mustUpdateAt": "2022-03-02",
@@ -9,6 +9,7 @@
   "registries": ["smartcheckout", "gocommerce"],
   "categories": ["gocommerce", "shipping"],
   "dependencies": {
+    "gocommerce.admin": "1.x",
     "gocommerce.admin-logistics": "1.x",
     "gocommerce.styleguide": "2.x",
     "gocommerce.gc-utils": "2.x",
