@@ -58,7 +58,7 @@ export function parseSortString(sort: string): string {
 
 export function parseActiveSidebarFilterOptions(query, sidebarFilterConfig) {
   let filters = sidebarFilterConfig.reduce((prev, element) => {
-    if (!query.hasOwnProperty(element.nameInUrl)) return [...prev]
+    if (!Object.keys(query).includes(element.nameInUrl)) return [...prev]
 
     let option = element.queryStringToEnabledOption(query[element.nameInUrl], element.options)
 
