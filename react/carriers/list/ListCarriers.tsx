@@ -1,11 +1,13 @@
 import * as React from 'react'
 import { Link } from 'vtex.render-runtime'
 import { FormattedMessage } from 'react-intl'
-import { Button, ListTableTemplate, IconPlusCircle } from 'gocommerce.styleguide'
+import { Button, ListTableTemplate, IconPlusCircle, EmptyContent } from 'gocommerce.styleguide'
 import { TemplatePage, WithNavigate } from 'gocommerce.gc-utils'
 
 import { Intl, CollectionIntervalInput, CollectionSortInput, CollectionFilterInput } from './../../utils/types'
 import { tableConfig } from './config/tableConfig'
+
+import EmptyImage from '../../assets/images/empty-shipping-list.svg'
 
 interface ListPageProps {
   intl: Intl
@@ -45,8 +47,53 @@ class ListPage extends React.Component<ListPageProps, ListPageState> {
 
   handleSearch = (value: { searchValue: string; optionValue: string }) => {}
 
+  renderListTable = (isLoadingPage: boolean) => {
+    const { isLoadingData, carriersList, intl } = this.props
+
+    if (!isLoadingPage && !carriersList.nodes.length) {
+      return (
+        <EmptyContent
+          title={'You don\'t have any custom shipping yet'}
+          description={'Set and manage your customized shipping rates'}
+          image={EmptyImage}
+        />
+      )
+    }
+
+    return (
+      <TemplatePage.Content>
+        <ListTableTemplate.Filter
+          isLoading={false}
+          placeholder={intl.formatMessage({
+            id: 'admin.shipping.search-by-name-or-shipping-zones'
+          })}
+        />
+        <div className="flex flex-column w-100 g-mt4">
+          <div className="w-100 center g-mv2">
+            <ListTableTemplate.Consumer>
+              {({ searchText }) => (
+                <ListTableTemplate.Table
+                  tableConfig={tableConfig}
+                  data={
+                    !isLoadingPage
+                      ? carriersList.nodes.filter(item => {
+                          if (!searchText) return true
+                          return item.name.toLowerCase().search(searchText.toLowerCase()) !== -1
+                        })
+                      : []
+                  }
+                  isLoading={isLoadingData || isLoadingPage}
+                />
+              )}
+            </ListTableTemplate.Consumer>
+          </div>
+        </div>
+      </TemplatePage.Content>
+    )
+  }
+
   render() {
-    const { isLoadingData, carriersList, account, query, navigate, pageUrl } = this.props
+    const { carriersList, query, navigate, pageUrl, intl } = this.props
     const isLoadingPage: boolean = !carriersList
     const breadcrumbConfig = [
       {
@@ -74,7 +121,7 @@ class ListPage extends React.Component<ListPageProps, ListPageState> {
         refecthData={this.refetchCarriers}
         forceRefetchData
       >
-        <TemplatePage title={this.props.intl.formatMessage({ id: 'admin.shipping.shipping-page-title' })}>
+        <TemplatePage title={intl.formatMessage({ id: 'admin.shipping.shipping-page-title' })}>
           <TemplatePage.Header
             breadcrumbConfig={breadcrumbConfig}
             tabsConfig={tabsConfigs}
@@ -92,34 +139,7 @@ class ListPage extends React.Component<ListPageProps, ListPageState> {
             }
           />
 
-          <TemplatePage.Content>
-            <ListTableTemplate.Filter
-              isLoading={false}
-              placeholder={this.props.intl.formatMessage({
-                id: 'admin.shipping.search-by-name-or-shipping-zones'
-              })}
-            />
-            <div className="flex flex-column w-100 g-mt4">
-              <div className="w-100 center g-mv2">
-                <ListTableTemplate.Consumer>
-                  {({ searchText }) => (
-                    <ListTableTemplate.Table
-                      tableConfig={tableConfig}
-                      data={
-                        !isLoadingPage
-                          ? carriersList.nodes.filter(item => {
-                              if (!searchText) return true
-                              return item.name.toLowerCase().search(searchText.toLowerCase()) !== -1
-                            })
-                          : []
-                      }
-                      isLoading={isLoadingData || isLoadingPage}
-                    />
-                  )}
-                </ListTableTemplate.Consumer>
-              </div>
-            </div>
-          </TemplatePage.Content>
+          {this.renderListTable(isLoadingPage)}
         </TemplatePage>
       </ListTableTemplate>
     )
