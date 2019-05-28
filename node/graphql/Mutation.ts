@@ -1,4 +1,4 @@
-import { biuldGraphQlError } from '@gocommerce/utils'
+import { buildGraphQLError } from '@gocommerce/utils'
 import FormData from 'form-data'
 
 export const deleteCarrier = async (param, makeApiCall) => {

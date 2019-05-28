@@ -64,6 +64,6 @@
   "admin.shipping.upload": "Enviar planilha",
   "admin.shipping.active?": "Ativo?",
   "admin.shipping.active": "Ativo",
-  "admin.shipping.msg-delete-success": "admin.shipping.msg-delete-success",
-  "admin.shipping.msg-save-success": "admin.shipping.msg-save-success"
+  "admin.shipping.msg-delete-success": "Forma de envio removida com sucesso",
+  "admin.shipping.msg-save-success": "Forma de envio salva com sucesso"
 }

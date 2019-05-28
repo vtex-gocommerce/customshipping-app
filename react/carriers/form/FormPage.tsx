@@ -83,7 +83,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
             position: 'top-right',
             type: 'success'
           })
-          this.props.navigate({ page: 'admin.logistics.customshipping-app' })
+          this.props.navigate && this.props.navigate({ page: 'admin.logistics.customshipping-app' })
         }
       })
       .catch(error => {
