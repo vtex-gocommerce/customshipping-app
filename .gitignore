@@ -1,5 +1,4 @@
 node_modules/
 .vscode/
 !Icon
-node/yarn.lock
 .DS_Store

@@ -1,11 +1,12 @@
-import { buildGraphQLError } from '@gocommerce/utils'
 import FormData from 'form-data'
 
-export const deleteCarrier = async (param, makeApiCall) => {
-  const errorList = []
+import { Args, Context } from './index'
+
+export const deleteCarrier = async (param: Args, makeApiCall: Function) => {
+  const errorList: string[] = []
   for (let id of param.id) {
     const url = `/logistics/carriers/${id}`
-    const { data, error } = await makeApiCall(url, 'delete', { id })
+    const { error } = await makeApiCall(url, 'delete', { id })
     if (error) {
       errorList.push(id)
     }
@@ -13,18 +14,18 @@ export const deleteCarrier = async (param, makeApiCall) => {
   return { status: 'finished', status_code: 200, message: errorList }
 }
 
-export const saveCarrier = async (param, makeApiCall, ctx) => {
+export const saveCarrier = async (param: Args, makeApiCall: Function, _ctx: Context) => {
   const paramJSON = JSON.parse(param.data)
   const url = `/logistics/carriers/${paramJSON.id}`
-  let { data: responseSaveCarrier, error: SaveCarryError } = await makeApiCall(url, 'put', paramJSON)
+  let { error: SaveCarryError } = await makeApiCall(url, 'put', paramJSON)
   const errorList = []
 
   if (param.file) {
-    const { filename, mimetype, encoding, stream } = await param.file
+    const { filename, mimetype, stream } = await param.file
 
     const buffer = (await new Promise((resolve, reject) => {
-      const bufs = []
-      stream.on('data', d => bufs.push(d))
+      const bufs: any[] = []
+      stream.on('data', (d: any) => bufs.push(d))
       stream.on('end', () => {
         resolve(Buffer.concat(bufs))
       })
@@ -44,7 +45,7 @@ export const saveCarrier = async (param, makeApiCall, ctx) => {
       ...formData.getHeaders()
     })
 
-    let { data: responseSaveCarrier, error: errorSaveCarrier } = responseUpload
+    let { error: errorSaveCarrier } = responseUpload
 
     if (SaveCarryError || errorSaveCarrier) {
       const error = SaveCarryError || errorSaveCarrier

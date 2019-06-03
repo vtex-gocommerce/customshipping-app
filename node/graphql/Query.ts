@@ -3,7 +3,9 @@ import { buildGraphQLError } from '@gocommerce/utils'
 // import { mergeDeep } from './../json_schema/functions'
 // const endpointAssets = 'https://s3.amazonaws.com/gc-ui/'
 
-export const carriers = async (param, makeApiCall) => {
+import { Args } from './index'
+
+export const carriers = async (_param: Args, makeApiCall: Function) => {
   const url = `/logistics/carriers`
   const { data, error } = await makeApiCall(url, 'get')
   if (error) {
@@ -12,7 +14,7 @@ export const carriers = async (param, makeApiCall) => {
   return { nodes: data, totalNodes: data.length }
 }
 
-export const carrier = async (param, makeApiCall) => {
+export const carrier = async (param: Args, makeApiCall: Function) => {
   const url = `/logistics/carriers/${param.id}`
   const { data, error } = await makeApiCall(url, 'get')
 
