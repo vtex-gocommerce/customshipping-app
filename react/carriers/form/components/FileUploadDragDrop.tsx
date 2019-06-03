@@ -13,7 +13,7 @@ interface FileUploadDragDropProps {
   dragDropTitle: string
   dragDropText: string
   fileInputAccept: string
-  onChangeFile(file: File)
+  onChangeFile(file: File | null)
 }
 
 interface FileUploadDragDropState {

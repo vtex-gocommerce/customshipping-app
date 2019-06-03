@@ -24,7 +24,6 @@ interface ListPageState {
   search: string | null
 }
 
-@WithNavigate.HOC()
 class ListPage extends React.Component<ListPageProps, ListPageState> {
   state: ListPageState = {
     search: null,
@@ -146,4 +145,4 @@ class ListPage extends React.Component<ListPageProps, ListPageState> {
   }
 }
 
-export default ListPage
+export default WithNavigate.HOC()(ListPage)

@@ -9,7 +9,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/node": "10.12.1",
-    "@gocommerce/utils": "^0.5.8",
+    "@gocommerce/utils": "^0.6.2",
     "axios": "^0.17.1",
     "form-data": "^2.3.2"
   },

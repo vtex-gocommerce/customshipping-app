@@ -32,21 +32,6 @@ export function objectToQueryString(source: object, config: ConfigObjectToQueryS
   return fields.join('&')
 }
 
-export function parseIntervalCollection(page: number, perPage: number): CollectionIntervalInput {
-  return {
-    init: (page - 1) * perPage,
-    end: page * perPage
-  }
-}
-
-export function parseSortCollection(sort: string): CollectionSortInput {
-  if (!sort) {
-    return null
-  }
-  const sortValues: string[] = sort.split('|')
-  return { field: sortValues[0], direction: sortValues[1] }
-}
-
 export function parseSortString(sort: string): string {
   if (!sort) {
     return ''
@@ -70,19 +55,6 @@ export function parseActiveSidebarFilterOptions(query, sidebarFilterConfig) {
 
 export function getSidebarFilterByOptionCode(optionCode: string, sidebarFilterConfig: any[] = []) {
   return sidebarFilterConfig.find(filter => filter.code === optionCode.split('-')[0])
-}
-
-export function parseFilterCollection(enabledSidebarFilterOptions: any[] = [], sidebarFilterConfig: any[] = []) {
-  const filters = sidebarFilterConfig.reduce((collectionFilters: [CollectionFilterInput], filter) => {
-    return [
-      ...collectionFilters,
-      ...filter.optionToFilterCollection(
-        enabledSidebarFilterOptions.filter(option => option.code.indexOf(filter.code + '-') !== -1)
-      )
-    ]
-  }, [])
-
-  return filters
 }
 
 export function getColorByStatus(status: string): string {

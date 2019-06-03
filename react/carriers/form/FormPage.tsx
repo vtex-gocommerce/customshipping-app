@@ -38,7 +38,6 @@ interface FormPageState {
   minimumValueAceptable: number | null
 }
 
-@WithNavigate.HOC()
 class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
   state: FormPageState = {
     minimumValueAceptable: null,
@@ -83,7 +82,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
             position: 'top-right',
             type: 'success'
           })
-          this.props.navigate({ page: 'admin.logistics.customshipping-app' })
+          this.props.navigate && this.props.navigate({ page: 'admin.logistics.customshipping-app' })
         }
       })
       .catch(error => {
@@ -328,4 +327,4 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
   }
 }
 
-export default FormPage
+export default WithNavigate.HOC()(FormPage)
