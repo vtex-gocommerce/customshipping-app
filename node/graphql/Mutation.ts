@@ -1,3 +1,4 @@
+import { buildGraphQLError } from '@gocommerce/utils'
 import FormData from 'form-data'
 
 import { Args, Context } from './index'
@@ -7,18 +8,22 @@ export const deleteCarrier = async (param: Args, makeApiCall: Function) => {
   for (let id of param.id) {
     const url = `/logistics/carriers/${id}`
     const { error } = await makeApiCall(url, 'delete', { id })
-    if (error) {
-      errorList.push(id)
-    }
+
+    if (error) throw buildGraphQLError('', error.status)
   }
+  
   return { status: 'finished', status_code: 200, message: errorList }
 }
 
 export const saveCarrier = async (param: Args, makeApiCall: Function, _ctx: Context) => {
+  const errorList: any[] = []
   const paramJSON = JSON.parse(param.data)
+
   const url = `/logistics/carriers/${paramJSON.id}`
+
   let { error: SaveCarryError } = await makeApiCall(url, 'put', paramJSON)
-  const errorList = []
+
+  if (SaveCarryError) throw buildGraphQLError('', SaveCarryError.status)
 
   if (param.file) {
     const { filename, mimetype, stream } = await param.file
@@ -47,14 +52,7 @@ export const saveCarrier = async (param: Args, makeApiCall: Function, _ctx: Cont
 
     let { error: errorSaveCarrier } = responseUpload
 
-    if (SaveCarryError || errorSaveCarrier) {
-      const error = SaveCarryError || errorSaveCarrier
-      if (error.data && error.data.message) {
-        errorList.push({ message: error.data.message, code: error.status })
-      } else {
-        errorList.push({ message: error.data, code: error.status })
-      }
-    }
+    if (errorSaveCarrier) throw buildGraphQLError('', errorSaveCarrier.status)
   }
 
   return { status: 'success', userErrors: errorList }

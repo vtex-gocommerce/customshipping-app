@@ -8,7 +8,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@gocommerce/utils": "^0.6.2",
+    "@gocommerce/utils": "^0.6.9",
     "@types/node": "10.12.1",
     "axios": "^0.17.1",
     "form-data": "^2.3.2"
