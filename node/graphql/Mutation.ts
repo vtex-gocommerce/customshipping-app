@@ -15,18 +15,26 @@ export const deleteCarrier = async (param: Args, makeApiCall: Function) => {
   return { status: 'finished', status_code: 200, message: errorList }
 }
 
+// const supportedMimetypes = ['application/vnd.ms-excel']
+const supportedExtensions = ['xls']
 export const saveCarrier = async (param: Args, makeApiCall: Function, _ctx: Context) => {
   const errorList: any[] = []
   const paramJSON = JSON.parse(param.data)
 
   const url = `/logistics/carriers/${paramJSON.id}`
 
-  let { error: SaveCarryError } = await makeApiCall(url, 'put', paramJSON)
+  const { error: saveCarryError } = await makeApiCall(url, 'put', paramJSON)
 
-  if (SaveCarryError) throw buildGraphQLError('', SaveCarryError.status)
+  if (saveCarryError) throw buildGraphQLError('', saveCarryError.status)
 
   if (param.file) {
-    const { filename, mimetype, stream } = await param.file
+    const { filename, mimetype, createReadStream } = await param.file
+    const stream = createReadStream()
+    const fileExtension = filename.split('.')[1]
+
+    if (!supportedExtensions.includes(fileExtension)) {
+      throw buildGraphQLError('customshipping-app.invalid-file-extension', '500')
+    }
 
     const buffer = (await new Promise((resolve, reject) => {
       const bufs: any[] = []
@@ -46,11 +54,9 @@ export const saveCarrier = async (param: Args, makeApiCall: Function, _ctx: Cont
 
     const freightsUrl = `/logistics/carriers/${paramJSON.id}/freights`
 
-    let responseUpload = await makeApiCall(freightsUrl, 'post', formData, {
+    const { error: errorSaveCarrier } = await makeApiCall(freightsUrl, 'post', formData, {
       ...formData.getHeaders()
     })
-
-    let { error: errorSaveCarrier } = responseUpload
 
     if (errorSaveCarrier) throw buildGraphQLError('', errorSaveCarrier.status)
   }

@@ -297,10 +297,9 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
                 exampleDownloadText={this.props.intl.formatMessage({ id: 'admin.shipping.spreadsheet-template' })}
                 dragDropTitle={fileUploadFragDropConfig[status].dragDropTitle}
                 dragDropText={fileUploadFragDropConfig[status].dragDropText}
-                fileInputAccept=".xls,.zip"
+                fileInputAccept=".xls"
                 dragDropIcon={fileUploadFragDropConfig[status].dragDropIcon}
                 onChangeFile={this.handleChangeFile}
-                showCorreiosLink={this.props.account.country === 'BRA'}
               />
 
               <div className="flex justify-between g-mt10">

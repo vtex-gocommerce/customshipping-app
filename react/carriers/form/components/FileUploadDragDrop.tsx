@@ -9,7 +9,6 @@ interface FileUploadDragDropProps {
   exampleDownloadText: string
   disabledUpload: boolean
   dragDropIcon: any
-  showCorreiosLink: boolean
   dragDropTitle: string
   dragDropText: string
   fileInputAccept: string
@@ -124,15 +123,6 @@ class FileUploadDragDrop extends React.Component<FileUploadDragDropProps, FileUp
         <div className="flex flex-wrap flex-nowrap-ns justify-between items-center">
           <h2 className="g-ma0 g-f4 fw6 g-mb2 g-mb0-ns">{title}</h2>
           <div className="w-100 w-auto-ns">
-            {this.props.showCorreiosLink && (
-              <a
-                target="_blank"
-                href="http://planilha.xpagencia.com.br/"
-                className="db dib-ns g-ml4-ns g-f2 g-mr4 link pointer c-on-base-2 hover-c-primary underline-hover"
-              >
-                Gerar planilha Correios
-              </a>
-            )}
             <a
               onClick={this.handleOpenFileExploer}
               className={`db dib-ns g-mv2 g-mv0-ns link g-f2 ${
