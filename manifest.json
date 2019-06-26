@@ -6,8 +6,14 @@
   "description": "Custom Shipping App",
   "mustUpdateAt": "2022-03-02",
   "credentialType": "absolute",
-  "registries": ["smartcheckout", "gocommerce"],
-  "categories": ["gocommerce", "shipping"],
+  "registries": [
+    "smartcheckout",
+    "gocommerce"
+  ],
+  "categories": [
+    "gocommerce",
+    "shipping"
+  ],
   "dependencies": {
     "gocommerce.admin": "1.x",
     "gocommerce.admin-logistics": "1.x",
@@ -36,5 +42,6 @@
         "host": "splunk-heavyforwarder-public.vtex.com"
       }
     }
-  ]
+  ],
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
