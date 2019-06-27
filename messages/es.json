@@ -1,4 +1,5 @@
 {
+  "admin/shipping.shipping-page-title": "Envío",
   "admin/shipping.my-shipping-methods": "Mis métodos de envío",
   "admin/shipping.custom-shipping": "Envío personalizado",
   "admin/shipping.description-custom-shipping": "Cree reglas de envío de forma personalizada. Puede crear reglas con precios basados en el peso o cargar una hoja de cálculo con reglas avanzadas.",
