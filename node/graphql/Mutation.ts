@@ -16,7 +16,7 @@ export const deleteCarrier = async (param: Args, makeApiCall: Function) => {
 }
 
 // const supportedMimetypes = ['application/vnd.ms-excel']
-const supportedExtensions = ['xls']
+const supportedExtensions = ['xls', 'zip']
 export const saveCarrier = async (param: Args, makeApiCall: Function, _ctx: Context) => {
   const errorList: any[] = []
   const paramJSON = JSON.parse(param.data)

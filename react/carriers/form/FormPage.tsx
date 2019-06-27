@@ -44,8 +44,8 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
     file: null,
     activeTab: 'default',
     tabsConfig: [
-      { label: <FormattedMessage id="admin.shipping.general" />, id: 'default', query: {} },
-      { label: <FormattedMessage id="admin.shipping.shipping-zones" />, id: 'shippingZone', query: {} }
+      { label: <FormattedMessage id="admin/shipping.general" />, id: 'default', query: {} },
+      { label: <FormattedMessage id="admin/shipping.shipping-zones" />, id: 'shippingZone', query: {} }
     ]
   }
 
@@ -78,7 +78,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
       })
       .then(response => {
         if (response.data.saveCarrier.status === 'success' && response.data.saveCarrier.userErrors.length === 0) {
-          Notify.show(this.props.intl.formatMessage({ id: 'admin.shipping.msg-save-success' }), {
+          Notify.show(this.props.intl.formatMessage({ id: 'admin/shipping.msg-save-success' }), {
             position: 'top-right',
             type: 'success'
           })
@@ -98,62 +98,62 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
     const { isLoadingData, errorSaveCarrier, action, account } = this.props
     const carrier = (this.props.carrier && this.props.carrier.data && this.props.carrier.data.carrier) || {}
     const breadcrumbConfig = [
-      { title: <FormattedMessage id="admin.shipping.custom-shipping" />, page: 'admin.logistics.customshipping-app' },
+      { title: <FormattedMessage id="admin/shipping.custom-shipping" />, page: 'admin.logistics.customshipping-app' },
       {
         title:
-          action === 'create' ? this.props.intl.formatMessage({ id: 'admin.shipping.add' }) : carrier.name! || ' - '
+          action === 'create' ? this.props.intl.formatMessage({ id: 'admin/shipping.add' }) : carrier.name! || ' - '
       }
     ]
 
     const additionalTimeOptions = [
-      { label: this.props.intl.formatMessage({ id: 'admin.shipping.no-additional-time' }), value: '00:00:00' },
-      { label: this.props.intl.formatMessage({ id: 'admin.shipping.1-more-day' }), value: '1.00:00:00' },
-      { label: this.props.intl.formatMessage({ id: 'admin.shipping.2-more-days' }), value: '2.00:00:00' },
-      { label: this.props.intl.formatMessage({ id: 'admin.shipping.3-more-days' }), value: '3.00:00:00' },
-      { label: this.props.intl.formatMessage({ id: 'admin.shipping.4-more-days' }), value: '4.00:00:00' },
-      { label: this.props.intl.formatMessage({ id: 'admin.shipping.5-more-days' }), value: '5.00:00:00' },
-      { label: this.props.intl.formatMessage({ id: 'admin.shipping.6-more-days' }), value: '6.00:00:00' },
-      { label: this.props.intl.formatMessage({ id: 'admin.shipping.7-more-days' }), value: '7.00:00:00' }
+      { label: this.props.intl.formatMessage({ id: 'admin/shipping.no-additional-time' }), value: '00:00:00' },
+      { label: this.props.intl.formatMessage({ id: 'admin/shipping.1-more-day' }), value: '1.00:00:00' },
+      { label: this.props.intl.formatMessage({ id: 'admin/shipping.2-more-days' }), value: '2.00:00:00' },
+      { label: this.props.intl.formatMessage({ id: 'admin/shipping.3-more-days' }), value: '3.00:00:00' },
+      { label: this.props.intl.formatMessage({ id: 'admin/shipping.4-more-days' }), value: '4.00:00:00' },
+      { label: this.props.intl.formatMessage({ id: 'admin/shipping.5-more-days' }), value: '5.00:00:00' },
+      { label: this.props.intl.formatMessage({ id: 'admin/shipping.6-more-days' }), value: '6.00:00:00' },
+      { label: this.props.intl.formatMessage({ id: 'admin/shipping.7-more-days' }), value: '7.00:00:00' }
     ]
 
     const fileUploadFragDropConfig = {
       default: {
         disabledUpload: false,
-        dragDropTitle: this.props.intl.formatMessage({ id: 'admin.shipping.drag-& drop-spreadsheet-here' }),
+        dragDropTitle: this.props.intl.formatMessage({ id: 'admin/shipping.drag-& drop-spreadsheet-here' }),
         dragDropText: this.props.intl.formatMessage({
-          id: 'admin.shipping.maximun-size: 10mb-format: .xls-and-.zip'
+          id: 'admin/shipping.maximun-size: 10mb-format: .xls-and-.zip'
         }),
         dragDropIcon: <IconUpload className="c-on-base-2 g-mb2" height="48px" width="48px" />
       },
       ready: {
         disabledUpload: false,
-        dragDropTitle: this.props.intl.formatMessage({ id: 'admin.shipping.success' }),
+        dragDropTitle: this.props.intl.formatMessage({ id: 'admin/shipping.success' }),
         dragDropText: this.props.intl.formatMessage({
-          id: 'admin.shipping.the-spreadsheet-has-been-successfully-processed'
+          id: 'admin/shipping.the-spreadsheet-has-been-successfully-processed'
         }),
         dragDropIcon: <IconCheckCircle className="c-on-base-2 g-mb2" height="48px" width="48px" />
       },
       pendingProcess: {
         disabledUpload: true,
-        dragDropTitle: this.props.intl.formatMessage({ id: 'admin.shipping.processing' }),
+        dragDropTitle: this.props.intl.formatMessage({ id: 'admin/shipping.processing' }),
         dragDropText: this.props.intl.formatMessage({
-          id: 'admin.shipping.spreadsheet-is-being-processed. please-wait-a-moment'
+          id: 'admin/shipping.spreadsheet-is-being-processed. please-wait-a-moment'
         }),
         dragDropIcon: <IconSyncAlt className="c-on-base-2 g-mb2" height="48px" width="48px" />
       },
       processing: {
         disabledUpload: true,
-        dragDropTitle: this.props.intl.formatMessage({ id: 'admin.shipping.processing' }),
+        dragDropTitle: this.props.intl.formatMessage({ id: 'admin/shipping.processing' }),
         dragDropText: this.props.intl.formatMessage({
-          id: 'admin.shipping.spreadsheet-is-being-processed. please-wait-a-moment'
+          id: 'admin/shipping.spreadsheet-is-being-processed. please-wait-a-moment'
         }),
         dragDropIcon: <IconSyncAlt className="c-on-base-2 g-mb2" height="48px" width="48px" />
       },
       error: {
         disabledUpload: false,
-        dragDropTitle: this.props.intl.formatMessage({ id: 'admin.shipping.failed' }),
+        dragDropTitle: this.props.intl.formatMessage({ id: 'admin/shipping.failed' }),
         dragDropText: this.props.intl.formatMessage({
-          id: 'admin.shipping.there-was-an-error-while-processing-the-spreadsheet. please-try-again'
+          id: 'admin/shipping.there-was-an-error-while-processing-the-spreadsheet. please-try-again'
         }),
         dragDropIcon: <IconTimesCircle className="c-on-base-2 g-mb2" height="48px" width="48px" />
       }
@@ -163,19 +163,19 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
 
     return (
       <TemplatePage>
-        <Helmet title={this.props.intl.formatMessage({ id: 'admin.shipping.shipping-page-title' })} />
+        <Helmet title={this.props.intl.formatMessage({ id: 'admin/shipping.shipping-page-title' })} />
         <TemplatePage.Header
           breadcrumbConfig={breadcrumbConfig}
           buttons={
             <div className="dn db-ns">
               <Link className="link g-mr4" to="/admin/logistics">
                 <Button style="secondary">
-                  <FormattedMessage id="admin.shipping.cancel" />
+                  <FormattedMessage id="admin/shipping.cancel" />
                 </Button>
               </Link>
 
               <Form.SubmitButton formId="FormId" disabled={this.props.isLoadingSaveCarrier}>
-                <FormattedMessage id="admin.shipping.save" />{' '}
+                <FormattedMessage id="admin/shipping.save" />{' '}
                 {this.props.isLoadingSaveCarrier && <IconSpinner animate />}
               </Form.SubmitButton>
             </div>
@@ -195,7 +195,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
                         prev +
                         ' ' +
                         this.props.intl.formatMessage({
-                          id: 'admin.shipping.error-' + error.message.toLowerCase().replace(/ /g, '-')
+                          id: 'admin/shipping.error-' + error.message.toLowerCase().replace(/ /g, '-')
                         })
                       )
                     }, '')}
@@ -205,7 +205,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
               )}
               <div id="default" className="w-100 ba br2 b--base-4 flex flex-column bg-base-1 g-ph7 g-pv5 c-on-base">
                 <h2 className="g-ma0 g-f4 fw6">
-                  <FormattedMessage id="admin.shipping.general" />
+                  <FormattedMessage id="admin/shipping.general" />
                 </h2>
 
                 <div className="g-mt6 ">
@@ -219,12 +219,12 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
                             className="dib g-mr1"
                             checked={carrier.isActive}
                             label={this.props.intl.formatMessage({
-                              id: 'admin.shipping.active?'
+                              id: 'admin/shipping.active?'
                             })}
                           />
                         </div>
                         <p className="db c-on-base-2 g-mb1 g-f2 lh-copy">
-                          <FormattedMessage id="admin.shipping.name" />
+                          <FormattedMessage id="admin/shipping.name" />
                         </p>
                         <div>
                           <Form.Input type="hidden" className="w-100" name="id" value={carrier.id} />
@@ -232,7 +232,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
                         </div>
 
                         <p className="db c-on-base-2 g-mb1 g-f2 lh-copy">
-                          <FormattedMessage id="admin.shipping.sla-type" />
+                          <FormattedMessage id="admin/shipping.sla-type" />
                         </p>
                         <div>
                           <Form.Input className="w-100" name="SlaType" value={carrier.slaType} required />
@@ -241,7 +241,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
                         <div className="flex flex-wrap flex-nowrap-ns justify-between w-100">
                           <div className="g-mr4-ns w-100 w-50-ns">
                             <p className="db c-on-base-2 g-mb1 g-f2 lh-copy">
-                              <FormattedMessage id="admin.shipping.minimum-value" />
+                              <FormattedMessage id="admin/shipping.minimum-value" />
                             </p>
                             <div>
                               <CurrencyInput
@@ -257,7 +257,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
 
                           <div className="w-100 w-50-ns">
                             <p className="db c-on-base-2 g-mb1 g-f2 lh-copy">
-                              <FormattedMessage id="admin.shipping.additional-time" />
+                              <FormattedMessage id="admin/shipping.additional-time" />
                             </p>
                             <div>
                               <Form.Select
@@ -279,7 +279,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
                             className="dib g-mr1"
                             checked={carrier.deliveryOnWeekends}
                             label={this.props.intl.formatMessage({
-                              id: 'admin.shipping.delivery-on-weekends?'
+                              id: 'admin/shipping.delivery-on-weekends?'
                             })}
                           />
                         </div>
@@ -291,10 +291,10 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
 
               <FileUploadFragDrop
                 disabledUpload={fileUploadFragDropConfig[status].disabledUpload}
-                title={this.props.intl.formatMessage({ id: 'admin.shipping.shipping-zones' })}
+                title={this.props.intl.formatMessage({ id: 'admin/shipping.shipping-zones' })}
                 idContainer="shippingZone"
                 exampleDownloadLink="https://s3.amazonaws.com/gc-ui/assets/logistics/sample/example-carrier.xls"
-                exampleDownloadText={this.props.intl.formatMessage({ id: 'admin.shipping.spreadsheet-template' })}
+                exampleDownloadText={this.props.intl.formatMessage({ id: 'admin/shipping.spreadsheet-template' })}
                 dragDropTitle={fileUploadFragDropConfig[status].dragDropTitle}
                 dragDropText={fileUploadFragDropConfig[status].dragDropText}
                 fileInputAccept=".xls"
@@ -305,7 +305,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
               <div className="flex justify-between g-mt10">
                 <Link className="dn dib-ns link" to="/admin/logistics">
                   <Button style="secondary">
-                    <FormattedMessage id="admin.shipping.cancel" />
+                    <FormattedMessage id="admin/shipping.cancel" />
                   </Button>
                 </Link>
                 <Form.SubmitButton
@@ -314,7 +314,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
                   className="fixed static-ns w-100 w-auto-ns bottom-0 left-0 z-999"
                   disabled={this.props.isLoadingSaveCarrier}
                 >
-                  <FormattedMessage id="admin.shipping.save" />{' '}
+                  <FormattedMessage id="admin/shipping.save" />{' '}
                   {this.props.isLoadingSaveCarrier && <IconSpinner animate />}
                 </Form.SubmitButton>
               </div>

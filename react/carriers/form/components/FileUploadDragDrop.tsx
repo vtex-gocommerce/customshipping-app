@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { FormattedMessage } from 'react-intl'
-import { IconDownload, IconUpload, IconTrashAlt } from 'gocommerce.styleguide'
+import { FormattedMessage, injectIntl } from 'react-intl'
+import { IconDownload, IconUpload, IconTrashAlt, Notify } from 'gocommerce.styleguide'
 
 interface FileUploadDragDropProps {
   title: string
@@ -12,7 +12,8 @@ interface FileUploadDragDropProps {
   dragDropTitle: string
   dragDropText: string
   fileInputAccept: string
-  onChangeFile(file: File | null)
+  onChangeFile: (file: File | null) => {}
+  intl: any
 }
 
 interface FileUploadDragDropState {
@@ -27,7 +28,7 @@ class FileUploadDragDrop extends React.Component<FileUploadDragDropProps, FileUp
     showOverlay: false,
     lastTarget: null,
     file: null,
-    idFileInput: 0
+    idFileInput: 0,
   }
 
   containerRef: any = React.createRef<HTMLDivElement>()
@@ -36,8 +37,7 @@ class FileUploadDragDrop extends React.Component<FileUploadDragDropProps, FileUp
   onDragEnter = evt => {
     evt.preventDefault()
     if (!this.props.disabledUpload) {
-      this.setState({ lastTarget: evt.target })
-      this.setState({ showOverlay: true })
+      this.setState({ lastTarget: evt.target, showOverlay: true })
     }
   }
 
@@ -56,11 +56,16 @@ class FileUploadDragDrop extends React.Component<FileUploadDragDropProps, FileUp
     evt.preventDefault()
 
     if (!this.props.disabledUpload && evt.dataTransfer.files[0].name.match(/(zip|xls)$/)) {
-      const files = evt.dataTransfer.files
       this.fileUploadRef.current.files = evt.dataTransfer.files
       this.handleChangeFile()
-      this.setState({ showOverlay: false })
+    } else {
+      Notify.show(this.props.intl.formatMessage({ id: 'admin/shipping.upload-error' }), {
+        type: 'danger',
+        position: 'top-right',
+      })
     }
+
+    this.setState({ showOverlay: false })
   }
 
   handleDeleteFile = e => {
@@ -106,7 +111,7 @@ class FileUploadDragDrop extends React.Component<FileUploadDragDropProps, FileUp
       dragDropIcon,
       dragDropText,
       dragDropTitle,
-      fileInputAccept
+      fileInputAccept,
     } = this.props
 
     const { showOverlay, file, idFileInput } = this.state
@@ -129,7 +134,7 @@ class FileUploadDragDrop extends React.Component<FileUploadDragDropProps, FileUp
                 disabledUpload ? 'c-on-base-3' : 'pointer c-on-base-2 hover-c-primary underline-hover'
               }`}
             >
-              <IconUpload /> <FormattedMessage id="admin.shipping.upload" />
+              <IconUpload /> <FormattedMessage id="admin/shipping.upload" />
             </a>
             {exampleDownloadLink && (
               <a
@@ -178,4 +183,4 @@ class FileUploadDragDrop extends React.Component<FileUploadDragDropProps, FileUp
   }
 }
 
-export default FileUploadDragDrop
+export default injectIntl(FileUploadDragDrop)
