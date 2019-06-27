@@ -14,7 +14,7 @@ export const tableConfig = {
   columns: [
     {
       cellWrapper: Link,
-      label: <FormattedMessage id="admin.shipping.name" />,
+      label: <FormattedMessage id="admin/shipping.name" />,
       id: 'name',
       size: 85,
       row: item => {
@@ -24,7 +24,7 @@ export const tableConfig = {
 
     {
       cellWrapper: Link,
-      label: <FormattedMessage id="admin.shipping.status" />,
+      label: <FormattedMessage id="admin/shipping.status" />,
       id: 'status',
       size: 15,
       row: item => {
@@ -43,7 +43,7 @@ export const tableConfig = {
           <>
             <Status type={colorsStatus[status]} />
             <span className="g-ml2 g-f1 hide-child">
-              <FormattedMessage id={`admin.shipping.status-${status}`} />
+              <FormattedMessage id={`admin/shipping.status-${status}`} />
             </span>
           </>
         )

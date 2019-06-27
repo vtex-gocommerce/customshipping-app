@@ -64,7 +64,7 @@ class ListPage extends React.Component<ListPageProps, ListPageState> {
         <ListTableTemplate.Filter
           isLoading={false}
           placeholder={intl.formatMessage({
-            id: 'admin.shipping.search-by-name-or-shipping-zones'
+            id: 'admin/shipping.search-by-name-or-shipping-zones'
           })}
         />
         <div className="flex flex-column w-100 g-mt4">
@@ -96,19 +96,19 @@ class ListPage extends React.Component<ListPageProps, ListPageState> {
     const isLoadingPage: boolean = !carriersList
     const breadcrumbConfig = [
       {
-        title: <FormattedMessage id="admin.shipping.shipping" />,
+        title: <FormattedMessage id="admin/shipping.shipping" />,
         to: '/admin/logistics'
       },
 
       {
-        title: <FormattedMessage id={'admin.shipping.custom-shipping'} />
+        title: <FormattedMessage id={'admin/shipping.custom-shipping'} />
       }
     ]
 
     const tabsConfigs = [
       {
         id: 'default',
-        label: <FormattedMessage id="admin.shipping.all-shippings" />
+        label: <FormattedMessage id="admin/shipping.all-shippings" />
       }
     ]
 
@@ -120,7 +120,7 @@ class ListPage extends React.Component<ListPageProps, ListPageState> {
         refecthData={this.refetchCarriers}
         forceRefetchData
       >
-        <TemplatePage title={intl.formatMessage({ id: 'admin.shipping.shipping-page-title' })}>
+        <TemplatePage title={intl.formatMessage({ id: 'admin/shipping.shipping-page-title' })}>
           <TemplatePage.Header
             breadcrumbConfig={breadcrumbConfig}
             tabsConfig={tabsConfigs}
@@ -130,7 +130,7 @@ class ListPage extends React.Component<ListPageProps, ListPageState> {
               <Link className="link" to="/admin/logistics/carriers/create">
                 <div className="dn db-ns">
                   <Button style="primary">
-                    <FormattedMessage id="admin.shipping.add" />
+                    <FormattedMessage id="admin/shipping.add" />
                   </Button>
                 </div>
                 <IconPlusCircle className="db dn-ns c-primary" />

@@ -59,7 +59,7 @@ class FileUploadDragDrop extends React.Component<FileUploadDragDropProps, FileUp
       this.fileUploadRef.current.files = evt.dataTransfer.files
       this.handleChangeFile()
     } else {
-      Notify.show(this.props.intl.formatMessage({ id: 'admin.shipping.upload-error' }), {
+      Notify.show(this.props.intl.formatMessage({ id: 'admin/shipping.upload-error' }), {
         type: 'danger',
         position: 'top-right',
       })
@@ -134,7 +134,7 @@ class FileUploadDragDrop extends React.Component<FileUploadDragDropProps, FileUp
                 disabledUpload ? 'c-on-base-3' : 'pointer c-on-base-2 hover-c-primary underline-hover'
               }`}
             >
-              <IconUpload /> <FormattedMessage id="admin.shipping.upload" />
+              <IconUpload /> <FormattedMessage id="admin/shipping.upload" />
             </a>
             {exampleDownloadLink && (
               <a

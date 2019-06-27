@@ -36,7 +36,7 @@ class ButtonDeleteCarrier extends React.Component<ButtonDeleteCarrierProps, Butt
   handleClickYes = deleteCarrier => {
     deleteCarrier({ variables: { id: this.props.item.id } })
       .then(() => {
-        Notify.show(this.props.intl.formatMessage({ id: 'admin.shipping.msg-delete-success' }), {
+        Notify.show(this.props.intl.formatMessage({ id: 'admin/shipping.msg-delete-success' }), {
           position: 'top-right',
           type: 'success'
         })
@@ -71,10 +71,10 @@ class ButtonDeleteCarrier extends React.Component<ButtonDeleteCarrierProps, Butt
                 <Modal open={isModalOpen} onClose={this.handleClick} showCloseIcon={true} centered={false}>
                   <div>
                     <p className="g-ma0 g-f4 fw6">
-                      <FormattedMessage id="admin.shipping.modal-delete-carrier-title" />
+                      <FormattedMessage id="admin/shipping.modal-delete-carrier-title" />
                     </p>
                     <p className="g-mv5 g-f2 lh-copy">
-                      <FormattedMessage id="admin.shipping.modal-delete-carrier-description" />
+                      <FormattedMessage id="admin/shipping.modal-delete-carrier-description" />
                     </p>
                     <div className="flex flex-none-ns justify-between justify-end-ns g-mt8 g-nh3">
                       <Button
@@ -84,7 +84,7 @@ class ButtonDeleteCarrier extends React.Component<ButtonDeleteCarrierProps, Butt
                         className="pointer g-mh3"
                         onClick={this.handleClick}
                       >
-                        <FormattedMessage id="admin.shipping.modal-delete-carrier-no" />
+                        <FormattedMessage id="admin/shipping.modal-delete-carrier-no" />
                       </Button>
 
                       <Button
@@ -96,7 +96,7 @@ class ButtonDeleteCarrier extends React.Component<ButtonDeleteCarrierProps, Butt
                         }}
                         isDisabled={false}
                       >
-                        <FormattedMessage id="admin.shipping.modal-delete-carrier-yes" />{' '}
+                        <FormattedMessage id="admin/shipping.modal-delete-carrier-yes" />{' '}
                         {dataDeleteCarrier.loading ? <IconSpinner animate /> : null}
                       </Button>
                     </div>
