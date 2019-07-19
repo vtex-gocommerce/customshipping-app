@@ -1,9 +1,11 @@
 {
   "admin.logistics.customshipping-app": {
-    "component": "index"
+    "component": "index",
+    "path": "/admin/app/logistics/gocommerce.customshipping-app"
   },
   "admin.logistics.carrierEdit": {
     "component": "carrierForm",
+    "path": "/admin/app/logistics/carriers/:carrier_id/edit",
     "props": {
       "action": "edit",
       "type": "default"
@@ -11,6 +13,7 @@
   },
   "admin.logistics.carrierCreate": {
     "component": "carrierForm",
+    "path": "/admin/app/logistics/carriers/create",
     "props": {
       "action": "create",
       "type": "default"

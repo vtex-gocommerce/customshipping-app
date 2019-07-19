@@ -96,8 +96,8 @@ class ListPage extends React.Component<ListPageProps, ListPageState> {
     const isLoadingPage: boolean = !carriersList
     const breadcrumbConfig = [
       {
-        title: <FormattedMessage id="admin/shipping.shipping" />,
-        to: '/admin/logistics'
+        title: <FormattedMessage id="admin/shipping.shipping-page-title" />,
+        page: 'admin.logistics.shippings'
       },
 
       {
@@ -127,7 +127,10 @@ class ListPage extends React.Component<ListPageProps, ListPageState> {
             activeTab={'default'}
             handleChangeTab={() => {}}
             buttons={
-              <Link className="link" to="/admin/logistics/carriers/create">
+              <Link className="link" page="admin.logistics.carrierCreate" params={{
+                "action": "create",
+                "type": "default"
+              }}>
                 <div className="dn db-ns">
                   <Button style="primary">
                     <FormattedMessage id="admin/shipping.add" />
