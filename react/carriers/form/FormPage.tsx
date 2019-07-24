@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { WithNavigate, Form } from 'gocommerce.gc-utils'
 import { FormattedMessage } from 'react-intl'
-import { Helmet, Link } from 'vtex.render-runtime'
+import { Link } from 'vtex.render-runtime'
 import shortid from 'shortid'
 import { TemplatePage } from 'gocommerce.gc-utils'
 import {
@@ -162,13 +162,12 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
     const status = !carrier.freightTableValueError ? carrier.freightTableProcessStatus || 'default' : 'error'
 
     return (
-      <TemplatePage>
-        <Helmet title={this.props.intl.formatMessage({ id: 'admin/shipping.shipping-page-title' })} />
+      <TemplatePage title={this.props.intl.formatMessage({ id: 'admin/shipping.shipping-page-title' })}>
         <TemplatePage.Header
           breadcrumbConfig={breadcrumbConfig}
           buttons={
             <div className="dn db-ns">
-              <Link className="link g-mr4" to="/admin/logistics">
+              <Link className="link g-mr4" page="admin.logistics.shippings">
                 <Button style="secondary">
                   <FormattedMessage id="admin/shipping.cancel" />
                 </Button>
@@ -303,7 +302,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
               />
 
               <div className="flex justify-between g-mt10">
-                <Link className="dn dib-ns link" to="/admin/logistics">
+                <Link className="dn dib-ns link" page="admin.logistics.shippings">
                   <Button style="secondary">
                     <FormattedMessage id="admin/shipping.cancel" />
                   </Button>
