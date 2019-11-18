@@ -1,7 +1,7 @@
 import { buildGraphQLError } from '@gocommerce/utils'
 // import { ColossusContext } from 'colossus'
 // import { mergeDeep } from './../json_schema/functions'
-// const endpointAssets = 'https://s3.amazonaws.com/gc-ui/'
+// const endpointAssets = 'https://s3.amazonaws.com/gocommerce-ui/'
 
 import { Args } from './index'
 

@@ -292,7 +292,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
                 disabledUpload={fileUploadFragDropConfig[status].disabledUpload}
                 title={this.props.intl.formatMessage({ id: 'admin/shipping.shipping-zones' })}
                 idContainer="shippingZone"
-                exampleDownloadLink="https://s3.amazonaws.com/gc-ui/assets/logistics/sample/example-carrier.xls"
+                exampleDownloadLink="https://s3.amazonaws.com/gocommerce-ui/assets/logistics/sample/example-carrier.xls"
                 exampleDownloadText={this.props.intl.formatMessage({ id: 'admin/shipping.spreadsheet-template' })}
                 dragDropTitle={fileUploadFragDropConfig[status].dragDropTitle}
                 dragDropText={fileUploadFragDropConfig[status].dragDropText}
