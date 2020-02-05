@@ -27,6 +27,9 @@
     "node": "4.x",
     "graphql": "1.x"
   },
+  "billingOptions": {
+    "free": true
+  },
   "policies": [
     {
       "name": "outbound-access",
