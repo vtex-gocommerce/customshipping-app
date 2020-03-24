@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { Link } from 'vtex.render-runtime'
 import { FormattedMessage } from 'react-intl'
-import { Button, ListTableTemplate, IconPlusCircle, EmptyContent } from 'gocommerce.styleguide'
+import { ListTableTemplate, IconPlusCircle, EmptyContent } from 'gocommerce.styleguide';
+import { Button } from 'vtex.styleguide';
 import { TemplatePage, WithNavigate } from 'gocommerce.gc-utils'
 
 import { Intl, CollectionIntervalInput, CollectionSortInput, CollectionFilterInput } from './../../utils/types'
@@ -132,7 +133,7 @@ class ListPage extends React.Component<ListPageProps, ListPageState> {
                 "type": "default"
               }}>
                 <div className="dn db-ns">
-                  <Button style="primary">
+                  <Button size="large" variation="primary">
                     <FormattedMessage id="admin/shipping.add" />
                   </Button>
                 </div>
@@ -144,7 +145,7 @@ class ListPage extends React.Component<ListPageProps, ListPageState> {
           {this.renderListTable(isLoadingPage)}
         </TemplatePage>
       </ListTableTemplate>
-    )
+    );
   }
 }
 

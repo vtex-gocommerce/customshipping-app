@@ -18,7 +18,8 @@
     "gocommerce.admin-logistics": "2.x",
     "gocommerce.styleguide": "2.x",
     "gocommerce.gc-utils": "3.x",
-    "gocommerce.gc-context": "1.x"
+    "gocommerce.gc-context": "1.x",
+    "vtex.styleguide": "9.x"
   },
   "builders": {
     "react": "3.x",
