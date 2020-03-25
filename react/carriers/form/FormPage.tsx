@@ -13,9 +13,9 @@ import {
   Alert,
   CurrencyInput,
   Notify,
-} from 'gocommerce.styleguide';
+} from 'gocommerce.styleguide'
 
-import { Button } from 'vtex.styleguide';
+import { Button } from 'vtex.styleguide'
 
 import PlaceHolderContainerCard from './../../components/placeHolderContainerCard'
 import FileUploadFragDrop from './components/FileUploadDragDrop'
@@ -195,7 +195,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
                       ' ' +
                       this.props.intl.formatMessage({
                         id: 'admin/shipping.error-' + error.message.toLowerCase().replace(/ /g, '-')
-                      });
+                      })
                     }, '')}
                     .
                   </Alert>
@@ -320,7 +320,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
           )}
         </TemplatePage.Content>
       </TemplatePage>
-    );
+    )
   }
 }
 

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { FormattedMessage } from 'react-intl'
-import { IconTrashAlt, Modal, IconSpinner, Notify } from 'gocommerce.styleguide';
-import { Button } from 'vtex.styleguide';
+import { IconTrashAlt, Modal, IconSpinner, Notify } from 'gocommerce.styleguide'
+import { Button } from 'vtex.styleguide'
 import { injectIntl } from 'react-intl'
 import { GcMutation } from 'gocommerce.gc-utils'
 import deleteCarrier from './../graphql/deleteCarrier.gql'
@@ -50,11 +50,8 @@ class ButtonDeleteCarrier extends React.Component<ButtonDeleteCarrierProps, Butt
   }
 
   render() {
-    const isSendLoading = false
-    const send = _ => {}
-
     const { isModalOpen } = this.state
-    return <>
+    return (
       <GcMutation mutation={deleteCarrier}>
         {(deleteCarrier, dataDeleteCarrier) => (
           <>
@@ -77,24 +74,30 @@ class ButtonDeleteCarrier extends React.Component<ButtonDeleteCarrierProps, Butt
                     <FormattedMessage id="admin/shipping.modal-delete-carrier-description" />
                   </p>
                   <div className="flex flex-none-ns justify-between justify-end-ns g-mt8 g-nh3">
-                    <div className="pointer g-mh3"><Button
+                    <div className="g-mh3">
+                      <Button
                         size="large"
                         disabled={dataDeleteCarrier.loading}
                         variation="secondary"
-                        onClick={this.handleClick}>
+                        onClick={this.handleClick}
+                      >
                         <FormattedMessage id="admin/shipping.modal-delete-carrier-no" />
-                      </Button></div>
+                      </Button>
+                    </div>
 
-                    <div className="pointer g-mh3"><Button
+                    <div className="g-mh3">
+                      <Button
                         size="large"
                         variation="danger"
                         onClick={() => {
                           this.handleClickYes(deleteCarrier)
                         }}
-                        isDisabled={false}>
+                        disabled={dataDeleteCarrier.loading}
+                      >
                         <FormattedMessage id="admin/shipping.modal-delete-carrier-yes" />{' '}
                         {dataDeleteCarrier.loading ? <IconSpinner animate /> : null}
-                      </Button></div>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </Modal>
@@ -102,7 +105,7 @@ class ButtonDeleteCarrier extends React.Component<ButtonDeleteCarrierProps, Butt
           </>
         )}
       </GcMutation>
-    </>;
+    )
   }
 }
 
