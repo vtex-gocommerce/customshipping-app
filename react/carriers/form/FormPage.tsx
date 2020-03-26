@@ -5,7 +5,6 @@ import { Link } from 'vtex.render-runtime'
 import shortid from 'shortid'
 import { TemplatePage } from 'gocommerce.gc-utils'
 import {
-  Button,
   IconUpload,
   IconCheckCircle,
   IconTimesCircle,
@@ -13,8 +12,10 @@ import {
   IconSyncAlt,
   Alert,
   CurrencyInput,
-  Notify
+  Notify,
 } from 'gocommerce.styleguide'
+
+import { Button } from 'vtex.styleguide'
 
 import PlaceHolderContainerCard from './../../components/placeHolderContainerCard'
 import FileUploadFragDrop from './components/FileUploadDragDrop'
@@ -168,7 +169,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
           buttons={
             <div className="dn db-ns">
               <Link className="link g-mr4" page="admin.logistics.shippings">
-                <Button style="secondary">
+                <Button size="large" variation="secondary">
                   <FormattedMessage id="admin/shipping.cancel" />
                 </Button>
               </Link>
@@ -190,13 +191,11 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
                 <div className="g-mb10">
                   <Alert type="error">
                     {errorSaveCarrier.reduce((prev, error) => {
-                      return (
-                        prev +
-                        ' ' +
-                        this.props.intl.formatMessage({
-                          id: 'admin/shipping.error-' + error.message.toLowerCase().replace(/ /g, '-')
-                        })
-                      )
+                      return prev +
+                      ' ' +
+                      this.props.intl.formatMessage({
+                        id: 'admin/shipping.error-' + error.message.toLowerCase().replace(/ /g, '-')
+                      })
                     }, '')}
                     .
                   </Alert>
@@ -303,7 +302,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
 
               <div className="flex justify-between g-mt10">
                 <Link className="dn dib-ns link" page="admin.logistics.shippings">
-                  <Button style="secondary">
+                  <Button size="large" variation="secondary">
                     <FormattedMessage id="admin/shipping.cancel" />
                   </Button>
                 </Link>
