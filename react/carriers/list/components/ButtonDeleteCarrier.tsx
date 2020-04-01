@@ -67,14 +67,14 @@ class ButtonDeleteCarrier extends React.Component<ButtonDeleteCarrierProps, Butt
             >
               <Modal open={isModalOpen} onClose={this.handleClick} showCloseIcon={true} centered={false}>
                 <div>
-                  <p className="g-ma0 g-f4 fw6">
+                  <p className="ma0 f4 fw6">
                     <FormattedMessage id="admin/shipping.modal-delete-carrier-title" />
                   </p>
-                  <p className="g-mv5 g-f2 lh-copy">
+                  <p className="mv5 f6 lh-copy">
                     <FormattedMessage id="admin/shipping.modal-delete-carrier-description" />
                   </p>
-                  <div className="flex flex-none-ns justify-between justify-end-ns g-mt8 g-nh3">
-                    <div className="g-mh3">
+                  <div className="flex flex-none-ns justify-between justify-end-ns mt8 nh3">
+                    <div className="mh3">
                       <Button
                         size="large"
                         disabled={dataDeleteCarrier.loading}
@@ -85,7 +85,7 @@ class ButtonDeleteCarrier extends React.Component<ButtonDeleteCarrierProps, Butt
                       </Button>
                     </div>
 
-                    <div className="g-mh3">
+                    <div className="mh3">
                       <Button
                         size="large"
                         variation="danger"

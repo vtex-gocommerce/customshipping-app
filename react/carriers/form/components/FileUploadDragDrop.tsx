@@ -122,24 +122,22 @@ class FileUploadDragDrop extends React.Component<FileUploadDragDropProps, FileUp
         draggable
         ref={this.containerRef}
         id={idContainer ? idContainer : 'fileUploadDragDrop'}
-        className={`w-100 ba br2 b--base-4 flex flex-column g-mt10 bg-base-1 g-ph7 g-pv5 c-on-base ${showOverlay &&
-          'bg-base-4'}`}
+        className={`w-100 ba br2 b--base-4 flex flex-column mt10 bg-base-1 ph7 pv5 c-on-base ${showOverlay &&
+  'bg-base-4'}`}
       >
         <div className="flex flex-wrap flex-nowrap-ns justify-between items-center">
-          <h2 className="g-ma0 g-f4 fw6 g-mb2 g-mb0-ns">{title}</h2>
+          <h2 className="ma0 f4 fw6 mb2 mb0-ns">{title}</h2>
           <div className="w-100 w-auto-ns">
             <a
               onClick={this.handleOpenFileExploer}
-              className={`db dib-ns g-mv2 g-mv0-ns link g-f2 ${
-                disabledUpload ? 'c-on-base-3' : 'pointer c-on-base-2 hover-c-primary underline-hover'
-              }`}
+              className={`db dib-ns mv2 mv0-ns link f6 ${disabledUpload ? 'c-on-base-3' : 'pointer c-on-base-2 hover-c-primary underline-hover'}`}
             >
               <IconUpload /> <FormattedMessage id="admin/shipping.upload" />
             </a>
             {exampleDownloadLink && (
               <a
                 href={exampleDownloadLink}
-                className="db dib-ns  g-ml4-ns g-f2 link pointer c-on-base-2 hover-c-primary underline-hover"
+                className="db dib-ns  ml4-ns f6 link pointer c-on-base-2 hover-c-primary underline-hover"
               >
                 <IconDownload /> {exampleDownloadText ? exampleDownloadText : 'Exemple download'}
               </a>
@@ -147,22 +145,22 @@ class FileUploadDragDrop extends React.Component<FileUploadDragDropProps, FileUp
           </div>
         </div>
         <div
-          className={`g-mt6 flex flex-column justify-center items-center ${!disabledUpload ? 'pointer' : ''}`}
+          className={`mt6 flex flex-column justify-center items-center ${!disabledUpload ? 'pointer' : ''}`}
           onClick={this.handleOpenFileExploer}
         >
           <div>
-            <div className="g-pv11 tc">
+            <div className="pv11 tc">
               {dragDropIcon}
               {!file && (
                 <>
-                  <p className=" g-ma0 c-on-base-2 fw6 g-f5">{dragDropTitle}</p>
-                  <p className="g-ma-0 c-on-base-2 g-f1">{dragDropText}</p>
+                  <p className=" ma0 c-on-base-2 fw6 f3">{dragDropTitle}</p>
+                  <p className="ma-0 c-on-base-2 f7">{dragDropText}</p>
                 </>
               )}
               {file && (
                 <>
-                  <p className=" g-ma0 c-on-base-2 fw6 g-f5">{file.name}</p>
-                  <p className="g-ma-0 c-on-base-2 g-f1" onClick={this.handleDeleteFile}>
+                  <p className=" ma0 c-on-base-2 fw6 f3">{file.name}</p>
+                  <p className="ma-0 c-on-base-2 f7" onClick={this.handleDeleteFile}>
                     <IconTrashAlt className="hover-c-danger bg-animate" />
                   </p>
                 </>

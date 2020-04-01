@@ -116,7 +116,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
         dragDropText: this.props.intl.formatMessage({
           id: 'admin/shipping.maximun-size: 10mb-format: .xls-and-.zip'
         }),
-        dragDropIcon: <IconUpload className="c-on-base-2 g-mb2" height="48px" width="48px" />
+        dragDropIcon: <IconUpload className="c-on-base-2 mb2" height="48px" width="48px" />
       },
       ready: {
         disabledUpload: false,
@@ -124,7 +124,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
         dragDropText: this.props.intl.formatMessage({
           id: 'admin/shipping.the-spreadsheet-has-been-successfully-processed'
         }),
-        dragDropIcon: <IconCheckCircle className="c-on-base-2 g-mb2" height="48px" width="48px" />
+        dragDropIcon: <IconCheckCircle className="c-on-base-2 mb2" height="48px" width="48px" />
       },
       pendingProcess: {
         disabledUpload: true,
@@ -132,7 +132,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
         dragDropText: this.props.intl.formatMessage({
           id: 'admin/shipping.spreadsheet-is-being-processed. please-wait-a-moment'
         }),
-        dragDropIcon: <IconSyncAlt className="c-on-base-2 g-mb2" height="48px" width="48px" />
+        dragDropIcon: <IconSyncAlt className="c-on-base-2 mb2" height="48px" width="48px" />
       },
       processing: {
         disabledUpload: true,
@@ -140,7 +140,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
         dragDropText: this.props.intl.formatMessage({
           id: 'admin/shipping.spreadsheet-is-being-processed. please-wait-a-moment'
         }),
-        dragDropIcon: <IconSyncAlt className="c-on-base-2 g-mb2" height="48px" width="48px" />
+        dragDropIcon: <IconSyncAlt className="c-on-base-2 mb2" height="48px" width="48px" />
       },
       error: {
         disabledUpload: false,
@@ -148,7 +148,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
         dragDropText: this.props.intl.formatMessage({
           id: 'admin/shipping.there-was-an-error-while-processing-the-spreadsheet. please-try-again'
         }),
-        dragDropIcon: <IconTimesCircle className="c-on-base-2 g-mb2" height="48px" width="48px" />
+        dragDropIcon: <IconTimesCircle className="c-on-base-2 mb2" height="48px" width="48px" />
       }
     }
 
@@ -164,7 +164,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
               onLinkClick={() => this.props.navigate({ page: 'admin.logistics.customshipping-app' })}
             >
               <div className="dn db-ns">
-                <Link className="link g-mr4" page="admin.logistics.shippings">
+                <Link className="link mr4" page="admin.logistics.shippings">
                   <Button size="large" variation="secondary">
                     <FormattedMessage id="admin/shipping.cancel" />
                   </Button>
@@ -186,7 +186,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
           ) : (
             <div>
               {errorSaveCarrier && errorSaveCarrier.length > 0 && (
-                <div className="g-mb10">
+                <div className="mb10">
                   <Alert type="error">
                     {errorSaveCarrier.reduce((prev, error) => {
                       return prev +
@@ -199,27 +199,27 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
                   </Alert>
                 </div>
               )}
-              <div id="default" className="w-100 ba br2 b--base-4 flex flex-column bg-base-1 g-ph7 g-pv5 c-on-base">
-                <h2 className="g-ma0 g-f4 fw6">
+              <div id="default" className="w-100 ba br2 b--base-4 flex flex-column bg-base-1 ph7 pv5 c-on-base">
+                <h2 className="ma0 f4 fw6">
                   <FormattedMessage id="admin/shipping.general" />
                 </h2>
 
-                <div className="g-mt6 ">
+                <div className="mt6 ">
                   <Form id="FormId" onSubmit={this.handleSubmitForm}>
                     {stateData => (
                       <>
-                        <div className="g-f2 flex items-center c-on-base-2 g-mt3">
+                        <div className="f6 flex items-center c-on-base-2 mt3">
                           <Form.Toggle
                             name="isActive"
                             value="true"
-                            className="dib g-mr1"
+                            className="dib mr1"
                             checked={carrier.isActive}
                             label={this.props.intl.formatMessage({
                               id: 'admin/shipping.active?'
                             })}
                           />
                         </div>
-                        <p className="db c-on-base-2 g-mb1 g-f2 lh-copy">
+                        <p className="db c-on-base-2 mb1 f6 lh-copy">
                           <FormattedMessage id="admin/shipping.name" />
                         </p>
                         <div>
@@ -227,7 +227,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
                           <Form.Input className="w-100" name="name" value={carrier.name} required />
                         </div>
 
-                        <p className="db c-on-base-2 g-mb1 g-f2 lh-copy">
+                        <p className="db c-on-base-2 mb1 f6 lh-copy">
                           <FormattedMessage id="admin/shipping.sla-type" />
                         </p>
                         <div>
@@ -235,8 +235,8 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
                         </div>
 
                         <div className="flex flex-wrap flex-nowrap-ns justify-between w-100">
-                          <div className="g-mr4-ns w-100 w-50-ns">
-                            <p className="db c-on-base-2 g-mb1 g-f2 lh-copy">
+                          <div className="mr4-ns w-100 w-50-ns">
+                            <p className="db c-on-base-2 mb1 f6 lh-copy">
                               <FormattedMessage id="admin/shipping.minimum-value" />
                             </p>
                             <div>
@@ -252,7 +252,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
                           </div>
 
                           <div className="w-100 w-50-ns">
-                            <p className="db c-on-base-2 g-mb1 g-f2 lh-copy">
+                            <p className="db c-on-base-2 mb1 f6 lh-copy">
                               <FormattedMessage id="admin/shipping.additional-time" />
                             </p>
                             <div>
@@ -268,11 +268,11 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
                           </div>
                         </div>
 
-                        <div className="g-f2 flex items-center c-on-base-2 g-mt4">
+                        <div className="f6 flex items-center c-on-base-2 mt4">
                           <Form.Toggle
                             name="deliveryOnWeekends"
                             value="true"
-                            className="dib g-mr1"
+                            className="dib mr1"
                             checked={carrier.deliveryOnWeekends}
                             label={this.props.intl.formatMessage({
                               id: 'admin/shipping.delivery-on-weekends?'
@@ -298,7 +298,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
                 onChangeFile={this.handleChangeFile}
               />
 
-              <div className="flex justify-between g-mt10">
+              <div className="flex justify-between mt10">
                 <Link className="dn dib-ns link" page="admin.logistics.shippings">
                   <Button size="large" variation="secondary">
                     <FormattedMessage id="admin/shipping.cancel" />

@@ -65,8 +65,8 @@ const ListPage = React.memo(({
             id: 'admin/shipping.search-by-name-or-shipping-zones'
           })}
         />
-        <div className="flex flex-column w-100 g-mt4">
-          <div className="w-100 center g-mv2">
+        <div className="flex flex-column w-100 mt4">
+          <div className="w-100 center mv2">
             <ListTableTemplate.Consumer>
               {({ searchText }) => (
                 <ListTableTemplate.Table

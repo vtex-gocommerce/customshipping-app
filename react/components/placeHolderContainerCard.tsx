@@ -8,17 +8,17 @@ interface PlaceHolderContainerCardProps {
 
 const PlaceHolderContainerCard: React.SFC<PlaceHolderContainerCardProps> = props => {
   return (
-    <div className="w-100 ba br2 b--base-4 flex flex-column bg-base-1 g-ph7 g-pt5 c-on-base">
+    <div className="w-100 ba br2 b--base-4 flex flex-column bg-base-1 ph7 pt5 c-on-base">
       <PlaceholderContainer
         isPlaceholderActive={props.isPlaceholderActive}
         classNameArray={[
-          ['g-h8 w-30 g-mb7'],
-          ['g-h4 w-30 g-mb5'],
-          ['g-h10 w-80 g-mb5'],
-          ['g-h4 w-30 g-mb5'],
-          ['g-h10 w-80 g-mb5'],
-          ['g-h4 w-30 g-mb5'],
-          ['g-h10 w-80 g-mb5']
+          ["h-small w-30 mb7"],
+          ["h1 w-30 mb5"],
+          ["h-regular w-80 mb5"],
+          ["h1 w-30 mb5"],
+          ["h-regular w-80 mb5"],
+          ["h1 w-30 mb5"],
+          ["h-regular w-80 mb5"]
         ]}
       >
         {() => props.children()}
