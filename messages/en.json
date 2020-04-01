@@ -68,5 +68,7 @@
   "admin/shipping.msg-delete-success": "Shipping method  deleted successfully.",
   "admin/shipping.msg-save-success": "Shipping method saved successfully",
   "admin/shipping.upload-error": "Only .xls and .zip files are supported",
-  "admin/shipping.settings": "Settings"
+  "admin/shipping.settings": "Settings",
+  "admin/shipping.empry-content.title": "You don't have any custom shipping yet",
+  "admin/shipping.empry-content.description": "Set and manage your customized shipping rates"
 }

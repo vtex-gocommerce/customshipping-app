@@ -68,5 +68,7 @@
   "admin/shipping.msg-delete-success": "Forma de envio removida com sucesso",
   "admin/shipping.msg-save-success": "Forma de envio salva com sucesso",
   "admin/shipping.upload-error": "Apenas arquivos .xls e .zip são suportados",
-  "admin/shipping.settings": "Configuração"
+  "admin/shipping.settings": "Configuração",
+  "admin/shipping.empry-content.title": "Você não tem nenhuma forma de envio personalizado ainda",
+  "admin/shipping.empry-content.description": "Crie e gerencie suas formas de envio"
 }

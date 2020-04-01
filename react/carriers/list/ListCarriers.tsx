@@ -50,8 +50,8 @@ const ListPage = React.memo(({
     if (!isLoadingPage && !carriersList.nodes.length) {
       return (
         <EmptyContent
-          title={'You don\'t have any custom shipping yet'}
-          description={'Set and manage your customized shipping rates'}
+          title={intl.formatMessage({ id: 'admin/shipping.empry-content.title' })}
+          description={intl.formatMessage({ id: 'admin/shipping.empry-content.description' })}
           image={EmptyImage}
         />
       )
