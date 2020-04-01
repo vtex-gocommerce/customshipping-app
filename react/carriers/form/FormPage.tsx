@@ -14,8 +14,7 @@ import {
   CurrencyInput,
   Notify,
 } from 'gocommerce.styleguide'
-
-import { Button } from 'vtex.styleguide'
+import { Button, Layout, PageHeader } from 'vtex.styleguide'
 
 import PlaceHolderContainerCard from './../../components/placeHolderContainerCard'
 import FileUploadFragDrop from './components/FileUploadDragDrop'
@@ -29,7 +28,7 @@ interface FormPageProps {
   errorSaveCarrier: [any]
   isLoadingSaveCarrier: boolean
   saveCarrier(options: any)
-  navigate?: Function
+  navigate: Function
 }
 
 interface FormPageState {
@@ -97,14 +96,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
 
   render() {
     const { isLoadingData, errorSaveCarrier, action, account } = this.props
-    const carrier = (this.props.carrier && this.props.carrier.data && this.props.carrier.data.carrier) || {}
-    const breadcrumbConfig = [
-      { title: <FormattedMessage id="admin/shipping.custom-shipping" />, page: 'admin.logistics.customshipping-app' },
-      {
-        title:
-          action === 'create' ? this.props.intl.formatMessage({ id: 'admin/shipping.add' }) : carrier.name! || ' - '
-      }
-    ]
+    const carrier = this.props.carrier?.data?.carrier || {}
 
     const additionalTimeOptions = [
       { label: this.props.intl.formatMessage({ id: 'admin/shipping.no-additional-time' }), value: '00:00:00' },
@@ -164,25 +156,31 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
 
     return (
       <TemplatePage title={this.props.intl.formatMessage({ id: 'admin/shipping.shipping-page-title' })}>
-        <TemplatePage.Header
-          breadcrumbConfig={breadcrumbConfig}
-          buttons={
-            <div className="dn db-ns">
-              <Link className="link g-mr4" page="admin.logistics.shippings">
-                <Button size="large" variation="secondary">
-                  <FormattedMessage id="admin/shipping.cancel" />
-                </Button>
-              </Link>
+        <Layout
+          pageHeader={
+            <PageHeader
+              title={action === 'create' ? this.props.intl.formatMessage({ id: 'admin/shipping.add' }) : carrier.name! || ' - '}
+              linkLabel={<FormattedMessage id="admin/shipping.custom-shipping" />}
+              onLinkClick={() => this.props.navigate({ page: 'admin.logistics.customshipping-app' })}
+            >
+              <div className="dn db-ns">
+                <Link className="link g-mr4" page="admin.logistics.shippings">
+                  <Button size="large" variation="secondary">
+                    <FormattedMessage id="admin/shipping.cancel" />
+                  </Button>
+                </Link>
 
-              <Form.SubmitButton formId="FormId" disabled={this.props.isLoadingSaveCarrier}>
-                <FormattedMessage id="admin/shipping.save" />{' '}
-                {this.props.isLoadingSaveCarrier && <IconSpinner animate />}
-              </Form.SubmitButton>
-            </div>
+                <Form.SubmitButton
+                  formId="FormId"
+                  disabled={this.props.isLoadingSaveCarrier}
+                  status={this.props.isLoadingSaveCarrier ? 'loading' : null}
+                >
+                  <FormattedMessage id="admin/shipping.save" />
+                </Form.SubmitButton>
+              </div>
+            </PageHeader>
           }
-        />
-
-        <TemplatePage.Content type="small" menuScroll={this.state.tabsConfig}>
+        >
           {isLoadingData ? (
             <PlaceHolderContainerCard isPlaceholderActive={true}>{() => <div />}</PlaceHolderContainerCard>
           ) : (
@@ -318,7 +316,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
               </div>
             </div>
           )}
-        </TemplatePage.Content>
+        </Layout>
       </TemplatePage>
     )
   }

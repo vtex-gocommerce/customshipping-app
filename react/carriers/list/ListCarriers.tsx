@@ -29,7 +29,8 @@ const ListPage = React.memo(({
   refetchCarriersList,
   query,
 }: ListPageProps) => {
-  const { navigate } = useRuntime()
+  const { navigate, route: { blockId } } = useRuntime()
+  const currentAppId = blockId.split(':')[0]
 
   const refetchCarriers = (
     interval: CollectionIntervalInput | null = null,
@@ -88,6 +89,13 @@ const ListPage = React.memo(({
     )
   }
 
+  const handleBack = () => {
+    return navigate({
+      page: 'admin.app.apps.setup',
+      params: { appId: currentAppId },
+    })
+  }
+
   const isLoadingPage: boolean = !carriersList
   return (
     <ListTableTemplate
@@ -103,7 +111,7 @@ const ListPage = React.memo(({
             <PageHeader
               title={intl.formatMessage({ id: 'admin/shipping.custom-shipping' })}
               linkLabel={intl.formatMessage({ id: 'admin/shipping.settings' })}
-              onLinkClick={() => {}}
+              onLinkClick={handleBack}
             >
               <Link className="link" page="admin.logistics.carrierCreate" params={{
                 "action": "create",
