@@ -67,5 +67,6 @@
   "admin/shipping.active": "Ativo",
   "admin/shipping.msg-delete-success": "Forma de envio removida com sucesso",
   "admin/shipping.msg-save-success": "Forma de envio salva com sucesso",
-  "admin/shipping.upload-error": "Apenas arquivos .xls e .zip são suportados"
+  "admin/shipping.upload-error": "Apenas arquivos .xls e .zip são suportados",
+  "admin/shipping.settings": "Configuração"
 }

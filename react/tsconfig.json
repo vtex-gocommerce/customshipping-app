@@ -10,5 +10,10 @@
     "strictNullChecks": true,
     "typeRoots": ["node_modules/@types", "node_modules/@gocommerce"]
   },
+  "include": [
+    "./typings/*.d.ts",
+    "./**/*.tsx",
+    "./**/*.ts"
+  ],
   "lib": ["dom", "es2017"]
 }

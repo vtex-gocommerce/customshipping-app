@@ -2,8 +2,9 @@ import * as React from 'react'
 import { Link } from 'vtex.render-runtime'
 import { FormattedMessage } from 'react-intl'
 import { ListTableTemplate, IconPlusCircle, EmptyContent } from 'gocommerce.styleguide'
-import { Button } from 'vtex.styleguide'
-import { TemplatePage, WithNavigate } from 'gocommerce.gc-utils'
+import { PageHeader, Layout, ButtonWithIcon } from 'vtex.styleguide'
+import { TemplatePage } from 'gocommerce.gc-utils'
+import { useRuntime } from 'vtex.render-runtime'
 
 import { Intl, CollectionIntervalInput, CollectionSortInput, CollectionFilterInput } from './../../utils/types'
 import { tableConfig } from './config/tableConfig'
@@ -18,26 +19,25 @@ interface ListPageProps {
   isLoadingData: boolean
   refetchCarriersList: Function
   query: any
-  navigate?: Function
-}
-interface ListPageState {
-  toQueryStringConfig: any[]
-  search: string | null
 }
 
-class ListPage extends React.Component<ListPageProps, ListPageState> {
-  state: ListPageState = {
-    search: null,
-    toQueryStringConfig: [{ field: 'activeTab' }, { field: 'searchText', nameInUrl: 'q' }]
-  }
+const ListPage = React.memo(({
+  intl,
+  pageUrl,
+  carriersList,
+  isLoadingData,
+  refetchCarriersList,
+  query,
+}: ListPageProps) => {
+  const { navigate } = useRuntime()
 
-  refetchCarriers = (
+  const refetchCarriers = (
     interval: CollectionIntervalInput | null = null,
     sort: CollectionSortInput | null = null,
     search: string | null = null,
     filters: [CollectionFilterInput] | null = null,
   ): void => {
-    this.props.refetchCarriersList({
+    refetchCarriersList({
       variables: { interval, sort, search, filters },
       updateQuery: (e, b) => {
         return b.fetchMoreResult
@@ -45,11 +45,7 @@ class ListPage extends React.Component<ListPageProps, ListPageState> {
     })
   }
 
-  handleSearch = (value: { searchValue: string, optionValue: string }) => {}
-
-  renderListTable = (isLoadingPage: boolean) => {
-    const { isLoadingData, carriersList, intl } = this.props
-
+  const renderListTable = (isLoadingPage: boolean) => {
     if (!isLoadingPage && !carriersList.nodes.length) {
       return (
         <EmptyContent
@@ -61,7 +57,7 @@ class ListPage extends React.Component<ListPageProps, ListPageState> {
     }
 
     return (
-      <TemplatePage.Content>
+      <>
         <ListTableTemplate.Filter
           isLoading={false}
           placeholder={intl.formatMessage({
@@ -88,65 +84,51 @@ class ListPage extends React.Component<ListPageProps, ListPageState> {
             </ListTableTemplate.Consumer>
           </div>
         </div>
-      </TemplatePage.Content>
+      </>
     )
   }
 
-  render() {
-    const { carriersList, query, navigate, pageUrl, intl } = this.props
-    const isLoadingPage: boolean = !carriersList
-    const breadcrumbConfig = [
-      {
-        title: <FormattedMessage id="admin/shipping.shipping-page-title" />,
-        page: 'admin.logistics.shippings'
-      },
-
-      {
-        title: <FormattedMessage id={'admin/shipping.custom-shipping'} />
-      }
-    ]
-
-    const tabsConfigs = [
-      {
-        id: 'default',
-        label: <FormattedMessage id="admin/shipping.all-shippings" />
-      }
-    ]
-
-    return (
-      <ListTableTemplate
-        pageUrl={pageUrl}
-        query={query}
-        navigate={navigate}
-        refecthData={this.refetchCarriers}
-        forceRefetchData
-      >
-        <TemplatePage title={intl.formatMessage({ id: 'admin/shipping.shipping-page-title' })}>
-          <TemplatePage.Header
-            breadcrumbConfig={breadcrumbConfig}
-            tabsConfig={tabsConfigs}
-            activeTab={'default'}
-            handleChangeTab={() => {}}
-            buttons={
+  const isLoadingPage: boolean = !carriersList
+  return (
+    <ListTableTemplate
+      pageUrl={pageUrl}
+      query={query}
+      navigate={navigate}
+      refecthData={refetchCarriers}
+      forceRefetchData
+    >
+      <TemplatePage title={intl.formatMessage({ id: 'admin/shipping.shipping-page-title' })}>
+        <Layout
+          pageHeader={
+            <PageHeader
+              title={intl.formatMessage({ id: 'admin/shipping.custom-shipping' })}
+              linkLabel={intl.formatMessage({ id: 'admin/shipping.settings' })}
+              onLinkClick={() => {}}
+            >
               <Link className="link" page="admin.logistics.carrierCreate" params={{
                 "action": "create",
                 "type": "default"
               }}>
                 <div className="dn db-ns">
-                  <Button size="large" variation="primary">
+                  <ButtonWithIcon
+                    size="large"
+                    variation="primary"
+                    icon={
+                      <IconPlusCircle />
+                    }
+                  >
                     <FormattedMessage id="admin/shipping.add" />
-                  </Button>
+                  </ButtonWithIcon>
                 </div>
-                <IconPlusCircle className="db dn-ns c-primary" />
               </Link>
-            }
-          />
+            </PageHeader>
+          }
+        >
+          {renderListTable(isLoadingPage)}
+        </Layout>
+      </TemplatePage>
+    </ListTableTemplate>
+  )
+})
 
-          {this.renderListTable(isLoadingPage)}
-        </TemplatePage>
-      </ListTableTemplate>
-    )
-  }
-}
-
-export default WithNavigate.HOC()(ListPage)
+export default ListPage
