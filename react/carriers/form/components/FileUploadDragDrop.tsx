@@ -122,7 +122,7 @@ class FileUploadDragDrop extends React.Component<FileUploadDragDropProps, FileUp
         draggable
         ref={this.containerRef}
         id={idContainer ? idContainer : 'fileUploadDragDrop'}
-        className={`w-100 ba br2 b--base-4 flex flex-column mt10 bg-base-1 ph7 pv5 c-on-base ${showOverlay &&
+        className={`w-100 ba br2 b--base-4 flex flex-column mt8 bg-base-1 ph7 pv5 c-on-base ${showOverlay &&
   'bg-base-4'}`}
       >
         <div className="flex flex-wrap flex-nowrap-ns justify-between items-center">
@@ -149,7 +149,7 @@ class FileUploadDragDrop extends React.Component<FileUploadDragDropProps, FileUp
           onClick={this.handleOpenFileExploer}
         >
           <div>
-            <div className="pv11 tc">
+            <div className="pv9 tc">
               {dragDropIcon}
               {!file && (
                 <>

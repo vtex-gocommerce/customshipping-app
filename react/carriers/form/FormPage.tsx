@@ -298,7 +298,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
                 onChangeFile={this.handleChangeFile}
               />
 
-              <div className="flex justify-between mt10">
+              <div className="flex justify-between mt8">
                 <Link className="dn dib-ns link" page="admin.logistics.shippings">
                   <Button size="large" variation="secondary">
                     <FormattedMessage id="admin/shipping.cancel" />
