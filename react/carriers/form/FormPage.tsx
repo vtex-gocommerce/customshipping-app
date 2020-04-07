@@ -164,7 +164,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
               onLinkClick={() => this.props.navigate({ page: 'admin.logistics.customshipping-app' })}
             >
               <div className="dn db-ns">
-                <Link className="link mr4" page="admin.logistics.shippings">
+                <Link className="link mr4" page="admin.logistics.customshipping-app">
                   <Button size="large" variation="secondary">
                     <FormattedMessage id="admin/shipping.cancel" />
                   </Button>
@@ -299,7 +299,7 @@ class FormPage extends React.PureComponent<FormPageProps, FormPageState> {
               />
 
               <div className="flex justify-between mt8">
-                <Link className="dn dib-ns link" page="admin.logistics.shippings">
+                <Link className="dn dib-ns link" page="admin.logistics.customshipping-app">
                   <Button size="large" variation="secondary">
                     <FormattedMessage id="admin/shipping.cancel" />
                   </Button>
