@@ -42,7 +42,7 @@ export const tableConfig = {
         return (
           <>
             <Status type={colorsStatus[status]} />
-            <span className="g-ml2 g-f1 hide-child">
+            <span className="ml2 f7 hide-child">
               <FormattedMessage id={`admin/shipping.status-${status}`} />
             </span>
           </>

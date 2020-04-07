@@ -67,5 +67,8 @@
   "admin/shipping.active": "Active",
   "admin/shipping.msg-delete-success": "Forma de envío borrado con éxito",
   "admin/shipping.msg-save-success": "Forma de envío guardado con éxito",
-  "admin/shipping.upload-error": "Solo se admiten archivos .xls y .zip"
+  "admin/shipping.upload-error": "Solo se admiten archivos .xls y .zip",
+  "admin/shipping.settings": "Configuracion",
+  "admin/shipping.empry-content.title": "Tú no tienes ningúna forma de envio personalizado",
+  "admin/shipping.empry-content.description": "Crea y administra tus métodos de envío"
 }

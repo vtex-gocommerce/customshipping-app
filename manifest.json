@@ -29,7 +29,8 @@
     "graphql": "1.x"
   },
   "billingOptions": {
-    "free": true
+    "free": true,
+    "setupRoute": "/admin/app/logistics/gocommerce.customshipping-app"
   },
   "policies": [
     {

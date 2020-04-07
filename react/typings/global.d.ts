@@ -1,0 +1,6 @@
+declare module 'vtex.render-runtime'
+declare module 'gocommerce.styleguide'
+declare module 'vtex.styleguide'
+declare module 'gocommerce.gc-utils'
+declare module '*.gql'
+declare module '*.svg'

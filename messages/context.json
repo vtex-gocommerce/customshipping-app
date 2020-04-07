@@ -67,5 +67,8 @@
   "admin/shipping.active": "Active",
   "admin/shipping.msg-delete-success": "Shipping method  deleted successfully.",
   "admin/shipping.msg-save-success": "Shipping method saved successfully",
-  "admin/shipping.upload-error": "admin/shipping.upload-error"
+  "admin/shipping.upload-error": "admin/shipping.upload-error",
+  "admin/shipping.settings": "admin/shipping.settings",
+  "admin/shipping.empry-content.title": "admin/shipping.empry-content.title",
+  "admin/shipping.empry-content.description": "admin/shipping.empry-content.description"
 }
